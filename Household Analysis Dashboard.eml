@@ -4,8 +4,8 @@
 	<exclude-output/>
 	<contentEntry url="file://$MODULE_DIR$"/>
 	<lib name="Tomcat 7.0.67" scope="PROVIDED"/>
-	<lib name="Jersey-2.2" scope="PROVIDED"/>
 	<levels>
 		<level name="Tomcat 7.0.67" value="application_server_libraries"/>
+		<level name="libs" value="project"/>
 	</levels>
 </component>
