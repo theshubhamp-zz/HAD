@@ -7,7 +7,7 @@ import javax.ws.rs.ApplicationPath;
 /**
  * Created by Shubham S Patil on 1/13/2016.
  */
-@ApplicationPath("restpoint")
+@ApplicationPath("api")
 public class RestApp extends ResourceConfig {
         public RestApp() {
             packages(true, "com.had");
