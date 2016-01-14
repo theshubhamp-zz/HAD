@@ -21,7 +21,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="inheritedJdk" />
     <orderEntry type="module" module-name="Household Analysis Dashboard/src" />
-    <orderEntry type="library" scope="PROVIDED" name="Tomcat 7.0.67" level="application_server_libraries" />
     <orderEntry type="library" name="libs" level="project" />
   </component>
 </module>
