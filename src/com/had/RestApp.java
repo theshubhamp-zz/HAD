@@ -5,7 +5,8 @@ import org.glassfish.jersey.server.ResourceConfig;
 import javax.ws.rs.ApplicationPath;
 
 /**
- * Created by Shubham S Patil on 1/13/2016.
+ * @author Shubham S Patil
+ * @since January 13, 2016
  */
 @ApplicationPath("api")
 public class RestApp extends ResourceConfig {
