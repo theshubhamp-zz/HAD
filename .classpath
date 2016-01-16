@@ -25,5 +25,6 @@
 	<classpathentry kind="lib" path="libs/validation-api-1.1.0.Final.jar"/>
 	<classpathentry kind="lib" path="libs/jsp-api.jar"/>
 	<classpathentry kind="lib" path="libs/servlet-api.jar"/>
+	<classpathentry kind="lib" path="libs/mysql-connector-java-5.1.38-bin.jar"/>
 	<classpathentry kind="output" path="out/production/Household Analysis Dashboard"/>
 </classpath>
