@@ -1,0 +1,21 @@
+<html>
+<div align="center">Demo Version</div>
+<div id="chartContainer" align="center">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+    <script src="http://dimplejs.org/dist/dimple.v2.1.6.min.js"></script>
+    <script type="text/javascript">
+        var svg = dimple.newSvg("#chartContainer", 590, 470);
+        d3.json("http://"+location.hostname+":8080/api/population", function (data) {
+            var myChart = new dimple.chart(svg, data);
+            myChart.setBounds(60, 30, 510, 305);
+            var x = myChart.addCategoryAxis("x", "stateName");
+            var y = myChart.addMeasureAxis("y", "populationYear2011");
+            myChart.addSeries(null, dimple.plot.bar);
+            myChart.draw();
+            x.titleShape.text("States");
+            y.titleShape.text("Population in 2011");
+        });
+    </script>
+</div>
+<div align="center">Statewise Population of India in the year 2011</div>
+</html>
