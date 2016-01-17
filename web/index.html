@@ -5,7 +5,7 @@
     <script src="http://dimplejs.org/dist/dimple.v2.1.6.min.js"></script>
     <script type="text/javascript">
         var svg = dimple.newSvg("#chartContainer", 590, 470);
-        d3.json("http://"+location.hostname+":8080/api/population", function (data) {
+        d3.json("http://"+location.hostname+"/api/population", function (data) {
             var myChart = new dimple.chart(svg, data);
             myChart.setBounds(60, 30, 510, 305);
             var x = myChart.addCategoryAxis("x", "stateName");
