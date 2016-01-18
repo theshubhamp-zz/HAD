@@ -26,5 +26,6 @@
 	<classpathentry kind="lib" path="libs/jsp-api.jar"/>
 	<classpathentry kind="lib" path="libs/servlet-api.jar"/>
 	<classpathentry kind="lib" path="libs/mysql-connector-java-5.1.38-bin.jar"/>
+	<classpathentry kind="lib" path="libs/gson-2.5.jar"/>
 	<classpathentry kind="output" path="out/production/Household Analysis Dashboard"/>
 </classpath>
