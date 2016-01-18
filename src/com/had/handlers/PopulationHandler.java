@@ -2,8 +2,8 @@ package com.had.handlers;
 
 import com.google.gson.Gson;
 import com.had.dao.PopulationDAO;
-import com.had.data.Constants;
 import com.had.data.Population;
+import com.had.util.Constants;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

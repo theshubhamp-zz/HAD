@@ -1,4 +1,4 @@
-package com.had.data;
+package com.had.util;
 
 /**
  * @author Shubham S Patil
