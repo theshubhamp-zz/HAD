@@ -8,10 +8,10 @@ package com.had.data;
 public class Constants {
     // JDBC driver name and database URL
     public static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-    public static String DB_URL;
+    public static final String DB_URL;
     //  Database credentials
-    public static String USER;
-    public static String PASS;
+    public static final String USER;
+    public static final String PASS;
     static {
         if(System.getenv("OPENSHIFT_MYSQL_DB_HOST")!=null)
         {
