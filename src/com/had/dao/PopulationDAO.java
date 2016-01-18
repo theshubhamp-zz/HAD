@@ -16,7 +16,7 @@ import com.had.util.Constants;
  * @since January 13, 2016
  */
 public class PopulationDAO {
-    private static String STATE_COLUMN_NAME = "STATE";
+    private static String STATE_COLUMN_NAME = "STATE_NAME";
     private static String POP_2001_COLUMN_NAME = "POP_2001";
     private static String POP_2011_COLUMN_NAME = "POP_2011";
     private static String LOAD_ALL_POPULATION_QUERY = "SELECT " + STATE_COLUMN_NAME + "," + POP_2001_COLUMN_NAME
