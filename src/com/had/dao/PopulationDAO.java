@@ -7,7 +7,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.google.gson.Gson;
 import com.had.data.Population;
 import com.had.util.Constants;
 

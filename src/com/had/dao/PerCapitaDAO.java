@@ -1,4 +1,4 @@
-
+package com.had.dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -7,7 +7,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.google.gson.Gson;
 import com.had.data.PerCapita;
 import com.had.util.Constants;
 
