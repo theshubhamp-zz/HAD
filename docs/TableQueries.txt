@@ -1,0 +1,17 @@
+Table Queries:
+
+GDP _DISTRICTWISE  Table Queries:
+1. SELECT state_id,dist_id,gdp_2008_09,gdp_2009_10,gdp_2010_11 FROM GDP_DISTRICTWISE;
+POP_DISTRICTWISE Table Queries:
+2.SELECT state_id,dist_id,pop_2001,pop_2011 FROM POP_DISTRICTWISE;
+PCI_STATEWISE Table Queries:
+3.SELECT state_id,pci_2009_10,pci_2010_11 FROM PCI_STATEWISE;
+LITERACY_STATEWISE Table Queries:
+4.SELECT state_id,LIT_2001,LIT_2011 from LITERACY_STATEWISE;
+GROSS_ENROLL_RATIO Table Queries:
+5.SELECT state_id,all_male,all_female,all_total,sc_male,sc_female,sc_total,st_male,st_female,st_total FROM GROSS_ENROLL_RATIO;
+HH Table Queries:
+6.SELECT state_id,urt_id,urt,hh_no,hh_pop,hhsize_1,hhsize_2,hhsize_2,hhsize_3,hhsize_4,hhsize_5,hhsize_6,hhsize_7_10,hhsize_11_14,hhsize_15_more,mean_hhsize FROM HH;
+MAIN_TABLE Table Queries:
+7.SELECT state_id,state_name,dist_id,dist_name FROM MAIN_TABLE;
+
