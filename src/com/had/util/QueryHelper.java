@@ -8,7 +8,7 @@ import java.util.Map;
  * @since January 23, 2016
  */
 public class QueryHelper {
-    public static String selectQuery(List<String> columns, Map<String, String> tables, Map<String, String> whereEquals, String groupby) {
+    public static String selectQuery(List<String> columns, Map<String, String> tables, List<String> whereStmnts, String groupby) {
         String query = "";
         query += "SELECT ";
         if (columns.size() == 0) {
@@ -30,11 +30,11 @@ public class QueryHelper {
             i++;
         }
         i = 0;
-        if (!(whereEquals.size() == 0)) {
+        if (!(whereStmnts.size() == 0)) {
             query += " WHERE ";
-            for (Map.Entry<String, String> entry : whereEquals.entrySet()) {
-                query += " " + entry.getKey() + " = " + entry.getValue() + " ";
-                if (i < whereEquals.size() - 1)
+            for (String entry : whereStmnts) {
+                query += " " + entry + " ";
+                if (i < whereStmnts.size() - 1)
                     query += " AND ";
                 i++;
             }
