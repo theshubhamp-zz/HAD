@@ -11,9 +11,9 @@ public class PopulationHandler {
 	public PopulationHandler() {
 	}
 
-	public String getPopulationData() {
-		PopulationDAO populationDAO = new PopulationDAO();
-		return new Gson().toJson(populationDAO.getPopulations());
+	public String getPopulationData(Integer stateid) {
+		PopulationDAO populationDAO = new PopulationDAO(stateid);
+		return new Gson().toJson(populationDAO.getList());
     }
 
 }
