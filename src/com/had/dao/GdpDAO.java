@@ -39,7 +39,7 @@ public class GdpDAO implements AbstractDAO {
             columns.add("SUM(" + GDP_2008_09_COLUMN_NAME + ")" + " as " + GDP_2008_09_COLUMN_NAME);
             columns.add("SUM(" + GDP_2009_10_COLUMN_NAME + ")" + " as " + GDP_2009_10_COLUMN_NAME);
             columns.add("SUM(" + GDP_2010_11_COLUMN_NAME + ")" + " as " + GDP_2010_11_COLUMN_NAME);
-            tables.put("gdp_statewise", "g");
+            tables.put("gdp_districtwise", "g");
             tables.put("main_table", "m");
             whereEquals.add("g.STATE_ID = m.STATE_ID");
             whereEquals.add("g.DIST_ID = m.DIST_ID");
