@@ -34,7 +34,7 @@ public class PerCapitaDAO implements AbstractDAO {
         columns.add(STATE_COLUMN_NAME);
         columns.add(PCI_2009_10_COLUMN_NAME);
         columns.add(PCI_2010_11_COLUMN_NAME);
-        tables.put("percapita_statewise","pc");
+        tables.put("pci_statewise","pc");
         tables.put("main_table","m");
         whereEquals.add("pc.STATE_ID = m.STATE_ID");
         builtQuery = QueryHelper.selectQuery(columns,tables,whereEquals,"m.STATE_ID");

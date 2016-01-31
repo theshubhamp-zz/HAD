@@ -8,8 +8,8 @@ package com.had.data;
 public class PerCapita
 {
     String stateName;
-    int percapitaYear2009_10;
-    int percapitaYear2010_11;
+    float percapitaYear2009_10;
+    float percapitaYear2010_11;
     
     public PerCapita(String stateName,float percapitaYear2009_10,float percapitaYear2010_11)
     {
@@ -26,7 +26,7 @@ public class PerCapita
         this.stateName = stateName;
     }
     
-    public int getPerCapitaYear2009_10() {
+    public float getPerCapitaYear2009_10() {
         return percapitaYear2009_10;
     }
     
@@ -34,7 +34,7 @@ public class PerCapita
         this.percapitaYear2009_10 = percapitaYear2009_10;
     }
     
-    public int getPerCapitaYear2010_11() {
+    public float getPerCapitaYear2010_11() {
         return percapitaYear2010_11;
     }
     
