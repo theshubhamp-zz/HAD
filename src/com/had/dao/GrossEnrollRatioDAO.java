@@ -31,7 +31,7 @@ public class GrossEnrollRatioDAO implements AbstractDAO {
     private static final String ST_FEMALE_COLUMN_NAME = "ST_FEMALE";
     private static final String ST_TOTAL_COLUMN_NAME = "ST_TOTAL";
     
-    List<GrossEnrollRatio> grossenroll;
+    List<GrossEnrollRatio> grossEnroll;
     private String builtQuery;
 	public GrossEnrollRatioDAO() {
 		grossEnroll = new ArrayList<>();

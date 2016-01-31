@@ -24,7 +24,7 @@ public class PerCapitaDAO implements AbstractDAO {
     private static final String PCI_2009_10_COLUMN_NAME = "PCI_2009_10";
     private static final String PCI_2010_11_COLUMN_NAME = "PCI_2010_11";
     
-    List<PerCapita> percapita;
+    List<PerCapita> perCapita;
     private String builtQuery;
 	public PerCapitaDAO() {
 		perCapita = new ArrayList<>();
@@ -52,7 +52,6 @@ public class PerCapitaDAO implements AbstractDAO {
 	                 ResultSet rs = statement.executeQuery(builtQuery)) {
 	                while (rs.next()) {
 	                        addObject(new PerCapita(rs.getString(STATE_COLUMN_NAME), rs.getFloat(PCI_2009_10_COLUMN_NAME), rs.getFloat(PCI_2010_11_COLUMN_NAME)));
-
 	                }
 	            }
 	        }
@@ -61,15 +60,15 @@ public class PerCapitaDAO implements AbstractDAO {
 	            e.printStackTrace();
 	        }
 	    }
-	}
 
     @Override
     public void addObject(Object obj) {
-    perCapita.add((PerCapita) obj);
+        perCapita.add((PerCapita) obj);
     }
 
     @Override
     public List getList() {
-    query();
-    return perCapita;
+        query();
+        return perCapita;
     }
+}
