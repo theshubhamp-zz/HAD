@@ -17,7 +17,7 @@ public class Constants {
         {
             USER = System.getenv("OPENSHIFT_MYSQL_DB_USERNAME");
             PASS = System.getenv("OPENSHIFT_MYSQL_DB_PASSWORD");
-            DB_URL = "jdbc:mysql://"+System.getenv("OPENSHIFT_MYSQL_DB_HOST")+":"+System.getenv("$OPENSHIFT_MYSQL_DB_PORT")+"/jbossews";
+            DB_URL = "jdbc:mysql://"+System.getenv("OPENSHIFT_MYSQL_DB_HOST")+":"+System.getenv("OPENSHIFT_MYSQL_DB_PORT")+"/jbossews";
         }
         else
         {
