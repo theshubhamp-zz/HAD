@@ -11,7 +11,7 @@ public class PerCapitaHandler {
 	public PerCapitaHandler() {
 	}
 
-	public String getPerCapitaData() {
+	public String getPerCapitaData(Integer stateid) {
 		PerCapitaDAO percapitaDAO = new PerCapitaDAO();
 		return new Gson().toJson(percapitaDAO.getPerCapita());
     }
