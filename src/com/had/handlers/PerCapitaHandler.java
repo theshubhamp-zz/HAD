@@ -8,12 +8,9 @@ import com.had.dao.PerCapitaDAO;
  * @since January 19, 2016
  */
 public class PerCapitaHandler {
-	public PerCapitaHandler() {
-	}
-
-	public String getPerCapitaData(Integer stateid) {
-		PerCapitaDAO percapitaDAO = new PerCapitaDAO();
-		return new Gson().toJson(percapitaDAO.getPerCapita());
+	public String getPerCapitaData() {
+		PerCapitaDAO perCapitaDAO = new PerCapitaDAO();
+		return new Gson().toJson(perCapitaDAO.getList());
     }
 
 }
