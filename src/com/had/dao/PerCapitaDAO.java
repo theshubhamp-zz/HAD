@@ -67,7 +67,7 @@ public class PerCapitaDAO implements AbstractDAO {
     }
 
     @Override
-    public List getList() {
+    public List<PerCapita> getList() {
         query();
         return perCapita;
     }

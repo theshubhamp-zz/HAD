@@ -84,7 +84,7 @@ public class GrossEnrollRatioDAO implements AbstractDAO {
 	    }
 
 	 @Override
-	    public List getList() {
+	    public List<GrossEnrollRatio> getList() {
 	    query();
 	    return grossEnroll;
 	    }

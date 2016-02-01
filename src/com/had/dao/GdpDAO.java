@@ -66,7 +66,7 @@ public class GdpDAO implements AbstractDAO {
     }
 
     @Override
-    public List getList() {
+    public List<Gdp> getList() {
         query();
         return gdps;
     }

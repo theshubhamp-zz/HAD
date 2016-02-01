@@ -85,7 +85,7 @@ public class PopulationDAO implements AbstractDAO{
     }
 
     @Override
-    public List getList() {
+    public List<Population> getList() {
         query();
         return populations;
     }

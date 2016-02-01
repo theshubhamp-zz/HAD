@@ -46,7 +46,7 @@ public class LiteracyRateDAO implements AbstractDAO
     }
 
     @Override
-    public List getList() {
+    public List<LiteracyRate> getList() {
         query();
         return literacyRates;
     }

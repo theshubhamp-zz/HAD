@@ -9,6 +9,6 @@ import java.util.List;
 public interface AbstractDAO
 {
     void addObject(Object obj);
-    List getList();
+    List<?> getList();
     void query();
 }
