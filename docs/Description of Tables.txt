@@ -7,9 +7,6 @@ Description of all tables in the Database:
 
      - Contains all states and union territories with their STATE_IDs and all their districts with their DIST_IDs.
      - All the states and districts are sorted alphabetically (a-z) (and were assigned IDs accordingly).
-
-     Changes:
-     - STATE_ID = 0 is for STATE_NAME = India and has DIST_ID = 0 and DIST_NAME = 'ALL INDIA'.
      - DIST_ID = 0 indicates total of data of all districts of that state (i.e. data for the whole state / state wise data) and DIST_NAME = ALL.
        (This was added for tables (containing district wise data) in which the district wise data for some states was not available.)
 	
@@ -22,7 +19,6 @@ Description of all tables in the Database:
      Structure: POP_district wise(STATE_ID INT(2), DIST_ID INT(2), POP_2001 DECIMAL(10,0), POP_2011 DECIMAL(10,0));
    
      - Contains district wise population for all states (has no row with DIST_ID = 0).
-     - It does NOT have data for STATE_ID = 0 (i.e. STATE_NAME = India).
    
    
   
@@ -33,7 +29,6 @@ Description of all tables in the Database:
      - Contains Gross Domestic Product at Constant 2004-05 Prices (in Rs. Crore).
      - Contains district wise data for some states and state wise data for remaining states.
       (i.e. has rows with DIST_ID = 0 for states not having district wise data, indicating state wise data).
-     - Contains data for STATE_ID = 0 (i.e. for all India -> STATE_NAME = India).
 
    
    
@@ -43,7 +38,6 @@ Description of all tables in the Database:
 	
 	 - Contains Per Capita Income at Constant Price (in Rs).
 	 - Contains only state wise data.
-	 - Contains data for STATE_ID = 0.
 	
 	
 5. LITERACY_state wise:
@@ -51,7 +45,6 @@ Description of all tables in the Database:
      Structure: LITERACY_state wise(STATE_ID INT(2), LIT_2001 DECIMAL(6,3), LIT_2011 DECIMAL(6,3));
 
 	 - Contains state wise Literacy Rates (in per cent).
-	 - Contains data for STATE_ID = 0.
 
    
 
@@ -62,39 +55,33 @@ Description of all tables in the Database:
     
      - Contains Gross Enrollment Ratio in age group 18-23 (higher education) for 2010-11.
      - Contains only state wise data.
-     - Contains data for STATE_ID = 0.
 	
 	
 7. HH:
 
-    Structure: HH(STATE_ID INT(2),URT_ID INT(1),URT VARCHAR(5),HH_NO DECIMAL(8,0),HH_POP DECIMAL(10,0),HHSIZE_1 DECIMAL(10,0),HHSIZE_2 DECIMAL(10,0),
-	              HHSIZE_3 DECIMAL(10,0),HHSIZE_4 DECIMAL(10,0),HHSIZE_5 DECIMAL(10,0),HHSIZE_6 DECIMAL(10,0),HHSIZE_7_10 DECIMAL(10,0),
-		          HHSIZE_11_14 DECIMAL(10,0),HHSIZE_15_MORE DECIMAL(10,0),MEAN_HHSIZE DECIMAL(2,1));
+    Structure: HH(STATE_ID INT(2), URT_ID INT(1), HHSIZE_1 DECIMAL(10,0), HHSIZE_2 DECIMAL(10,0), HHSIZE_3 DECIMAL(10,0),
+	               HHSIZE_4 DECIMAL(10,0), HHSIZE_5 DECIMAL(10,0), HHSIZE_6 DECIMAL(10,0), HHSIZE_7_10 DECIMAL(10,0),
+		           HHSIZE_11_14 DECIMAL(10,0), HHSIZE_15_MORE DECIMAL(10,0), MEAN_HHSIZE DECIMAL(2,1));
 
     - Primary key : (STATE_ID,URT_ID).		  
 				  
     Column description:
 	     - 1. STATE_ID.
-	     - 3. URT has values : {Urban, Rural, Total}
 	     - 2. URT_ID has values : {0, 1, 2} where 0=Urban, 1=Rural, 2=Total(i.e. rural + urban).
 	     - Normal Households by household size (Census 2011):
-	         - Normal Households:
-	             - 4. HH_NO :  Normal Household - Number (total no. of households for a state).
-	             - 5. HH_POP : Normal Households - Population.
 	         - Household size (HHSIZE):
-	    	     - 6. HHSIZE_1 is household size of 1.
-	             - 7. HHSIZE_2 is household size of 2.
-	    	     - 8. HHSIZE_3 is household size of 3.
-	    	     - 9. HHSIZE_4 is household size of 4.
-	    	     - 10. HHSIZE_5 is household size of 5.
-	    	     - 11. HHSIZE_6 is household size of 6.
-        	     - 12. HHSIZE_7_10 is household size of 7 to 10.
-	     	     - 13. HHSIZE_11_14 is household size of 11 to 14.
-	     	     - 14. HHSIZE_15_MORE is household size of 15+ .
-	     	     - 15. MEAN_HHSIZE is mean household size.
+	    	     - 3. HHSIZE_1 is household size of 1.
+	             - 4. HHSIZE_2 is household size of 2.
+	    	     - 5. HHSIZE_3 is household size of 3.
+	    	     - 6. HHSIZE_4 is household size of 4.
+	    	     - 7. HHSIZE_5 is household size of 5.
+	    	     - 8. HHSIZE_6 is household size of 6.
+        	     - 9. HHSIZE_7_10 is household size of 7 to 10.
+	     	     - 10. HHSIZE_11_14 is household size of 11 to 14.
+	     	     - 11. HHSIZE_15_MORE is household size of 15+ .
+	     	     - 12. MEAN_HHSIZE is mean household size.
 			 
 	- Contains data about Normal Households by household size (Census 2011).
 	- Contains state wise data which is further divided into rural and urban and total(rural+urban) for each state. 
-	- Contains data for STATE_ID = 0.	
 	
    
