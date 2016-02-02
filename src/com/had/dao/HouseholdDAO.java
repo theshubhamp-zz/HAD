@@ -32,7 +32,6 @@ public class HouseholdDAO implements AbstractDAO {
     private static final String HHSIZE_11_14_COLUMN_NAME = "HHSIZE_11_14";
     private static final String HHSIZE_15_MORE_COLUMN_NAME = "HHSIZE_15_MORE";
     private static final String MEAN_HHSIZE_COLUMN_NAME = "MEAN_HHSIZE";
-    int flag=0;
     
     List<Household> houseHold;
     private String builtQuery;
@@ -41,29 +40,10 @@ public class HouseholdDAO implements AbstractDAO {
         List<String> columns = new ArrayList<>();
         Map<String,String> tables= new ConcurrentHashMap<>();
         List<String> whereEquals= new ArrayList<>();
-        
-        /* columns.add(STATE_COLUMN_NAME);
-    columns.add(URT_ID_COLUMN_NAME);
-    columns.add(HHSIZE_1_COLUMN_NAME);
-    columns.add(HHSIZE_2_COLUMN_NAME);
-    columns.add(HHSIZE_3_COLUMN_NAME);
-    columns.add(HHSIZE_4_COLUMN_NAME);
-    columns.add(HHSIZE_5_COLUMN_NAME);
-    columns.add(HHSIZE_6_COLUMN_NAME);
-    columns.add(HHSIZE_7_10_COLUMN_NAME);
-    columns.add(HHSIZE_11_14_COLUMN_NAME);
-    columns.add(HHSIZE_15_MORE_COLUMN_NAME);
-    columns.add(MEAN_HHSIZE_COLUMN_NAME);
-    tables.put("hh","h");
-    tables.put("main_table","m");
-    whereEquals.add("h.STATE_ID = m.STATE_ID");
-    builtQuery = QueryHelper.selectQuery(columns,tables,whereEquals,"m.STATE_ID");
-    System.out.println(builtQuery);
-    */
+       
       
         if(urtid == 0)
         {
-        	flag = -1;
             columns.add(STATE_COLUMN_NAME);
             columns.add("SUM("+HHSIZE_1_COLUMN_NAME+")"+" as "+HHSIZE_1_COLUMN_NAME);
             columns.add("SUM("+HHSIZE_2_COLUMN_NAME+")"+" as "+HHSIZE_2_COLUMN_NAME);
@@ -79,13 +59,12 @@ public class HouseholdDAO implements AbstractDAO {
             tables.put("hh","h");
             tables.put("main_table","m");
             whereEquals.add("h.STATE_ID = m.STATE_ID");
-            whereEquals.add("h.URT_ID = m.URT_ID");
-            builtQuery = QueryHelper.selectQuery(columns,tables,whereEquals,"h.URT_ID");
+            whereEquals.add("h.URT_ID = " + urtid.toString());
+            builtQuery = QueryHelper.selectQuery(columns,tables,whereEquals,"h.STATE_ID");
         }
         
         else if(urtid == 1)
         {
-        	flag = 0;
             columns.add(STATE_COLUMN_NAME);
             columns.add("SUM("+HHSIZE_1_COLUMN_NAME+")"+" as "+HHSIZE_1_COLUMN_NAME);
             columns.add("SUM("+HHSIZE_2_COLUMN_NAME+")"+" as "+HHSIZE_2_COLUMN_NAME);
@@ -101,13 +80,12 @@ public class HouseholdDAO implements AbstractDAO {
             tables.put("hh","h");
             tables.put("main_table","m");
             whereEquals.add("h.STATE_ID = m.STATE_ID");
-            whereEquals.add("h.URT_ID = m.URT_ID");
-            builtQuery = QueryHelper.selectQuery(columns,tables,whereEquals,"h.URT_ID");
+            whereEquals.add("h.URT_ID = " + urtid.toString());
+            builtQuery = QueryHelper.selectQuery(columns,tables,whereEquals,"h.STATE_ID");
         }
         
         else if(urtid == 2)
         {
-        	flag = 1;
             columns.add(STATE_COLUMN_NAME);
             columns.add("SUM("+HHSIZE_1_COLUMN_NAME+")"+" as "+HHSIZE_1_COLUMN_NAME);
             columns.add("SUM("+HHSIZE_2_COLUMN_NAME+")"+" as "+HHSIZE_2_COLUMN_NAME);
@@ -123,8 +101,8 @@ public class HouseholdDAO implements AbstractDAO {
             tables.put("hh","h");
             tables.put("main_table","m");
             whereEquals.add("h.STATE_ID = m.STATE_ID");
-            whereEquals.add("h.URT_ID = m.URT_ID");
-            builtQuery = QueryHelper.selectQuery(columns,tables,whereEquals,"h.URT_ID");
+            whereEquals.add("h.URT_ID = " + urtid.toString());
+            builtQuery = QueryHelper.selectQuery(columns,tables,whereEquals,"h.STATE_ID");
         }
 	}
    
@@ -137,19 +115,10 @@ public class HouseholdDAO implements AbstractDAO {
 	                 Statement statement = connection.createStatement();
 	                 ResultSet rs = statement.executeQuery(builtQuery)) {
 	                while (rs.next()) {
-	                	if(flag == -1)
 	                        addObject(new Household(rs.getString(STATE_COLUMN_NAME), rs.getString(URT_ID_COLUMN_NAME), rs.getFloat(HHSIZE_1_COLUMN_NAME), rs.getFloat(HHSIZE_2_COLUMN_NAME),
 	                        		rs.getFloat(HHSIZE_3_COLUMN_NAME), rs.getFloat(HHSIZE_4_COLUMN_NAME), rs.getFloat(HHSIZE_5_COLUMN_NAME), rs.getFloat(HHSIZE_6_COLUMN_NAME), 
 	                        		rs.getFloat(HHSIZE_7_10_COLUMN_NAME), rs.getFloat(HHSIZE_11_14_COLUMN_NAME), rs.getFloat(HHSIZE_15_MORE_COLUMN_NAME), rs.getFloat(MEAN_HHSIZE_COLUMN_NAME)));
-	                	else if(flag == 0)
-	                		addObject(new Household(rs.getString(STATE_COLUMN_NAME), rs.getString(URT_ID_COLUMN_NAME), rs.getFloat(HHSIZE_1_COLUMN_NAME), rs.getFloat(HHSIZE_2_COLUMN_NAME),
-	                        		rs.getFloat(HHSIZE_3_COLUMN_NAME), rs.getFloat(HHSIZE_4_COLUMN_NAME), rs.getFloat(HHSIZE_5_COLUMN_NAME), rs.getFloat(HHSIZE_6_COLUMN_NAME), 
-	                        		rs.getFloat(HHSIZE_7_10_COLUMN_NAME), rs.getFloat(HHSIZE_11_14_COLUMN_NAME), rs.getFloat(HHSIZE_15_MORE_COLUMN_NAME), rs.getFloat(MEAN_HHSIZE_COLUMN_NAME)));
-	                	else if(flag == 1)
-	                		addObject(new Household(rs.getString(STATE_COLUMN_NAME), rs.getString(URT_ID_COLUMN_NAME), rs.getFloat(HHSIZE_1_COLUMN_NAME), rs.getFloat(HHSIZE_2_COLUMN_NAME),
-	                        		rs.getFloat(HHSIZE_3_COLUMN_NAME), rs.getFloat(HHSIZE_4_COLUMN_NAME), rs.getFloat(HHSIZE_5_COLUMN_NAME), rs.getFloat(HHSIZE_6_COLUMN_NAME), 
-	                        		rs.getFloat(HHSIZE_7_10_COLUMN_NAME), rs.getFloat(HHSIZE_11_14_COLUMN_NAME), rs.getFloat(HHSIZE_15_MORE_COLUMN_NAME), rs.getFloat(MEAN_HHSIZE_COLUMN_NAME)));
-
+	                		
 	                }
 	            }
 	        }
