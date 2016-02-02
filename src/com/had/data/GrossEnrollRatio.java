@@ -94,7 +94,7 @@ public class GrossEnrollRatio
     }
     
     public void setSTMale(float stMale) {
-        this.stMale = stFemale;
+        this.stMale = stMale;
     }
     
     public float getSTFemale() {
