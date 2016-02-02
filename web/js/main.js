@@ -64,7 +64,7 @@ $('#toggle').click(function(){
             y.titleShape.text("Household in 2011");
         });
     }
-	else if(cidx==3){
+	else if(cidx==4){
         $('#chart').html('<h2>Gross Enrollment Ratio Statewise for year 2011</h2>>');
         var svg = dimple.newSvg("#chart", 1360, 600);
         d3.json("http://"+location.hostname+"/api/gre", function (data) {
