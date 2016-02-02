@@ -50,6 +50,34 @@ $('#toggle').click(function(){
             y.titleShape.text("Literacy in 2011");
         });
     }
+	else if(cidx==3){
+        $('#chart').html('<h2>Household Statewise for year 2011</h2>>');
+        var svg = dimple.newSvg("#chart", 1360, 600);
+        d3.json("http://"+location.hostname+"/api/hh", function (data) {
+            var myChart = new dimple.chart(svg, data);
+            myChart.setBounds(60, 60, 1300, 400);
+            var x = myChart.addCategoryAxis("x", "name");
+            var y = myChart.addMeasureAxis("y", "houseoldYear2011");
+            myChart.addSeries(null, dimple.plot.bar);
+            myChart.draw();
+            x.titleShape.text("States");
+            y.titleShape.text("Household in 2011");
+        });
+    }
+	else if(cidx==3){
+        $('#chart').html('<h2>Gross Enrollment Ratio Statewise for year 2011</h2>>');
+        var svg = dimple.newSvg("#chart", 1360, 600);
+        d3.json("http://"+location.hostname+"/api/gre", function (data) {
+            var myChart = new dimple.chart(svg, data);
+            myChart.setBounds(60, 60, 1300, 400);
+            var x = myChart.addCategoryAxis("x", "name");
+            var y = myChart.addMeasureAxis("y", "grossenrollRatio2011");
+            myChart.addSeries(null, dimple.plot.bar);
+            myChart.draw();
+            x.titleShape.text("States");
+            y.titleShape.text("Gross Enroll Ratio in 2011");
+        });
+    }
     else{
         $('#chart').html('<h2>Per Capita Income Statewise for year 2011</h2>>');
         var svg = dimple.newSvg("#chart", 1360, 600);
