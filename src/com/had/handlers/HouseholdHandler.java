@@ -8,8 +8,8 @@ import com.had.dao.HouseholdDAO;
  * @since February 2, 2016
  */
 public class HouseholdHandler {
-	public String getHouseholdData() {
-		HouseholdDAO houseHoldDAO = new HouseholdDAO();
+	public String getHouseholdData(Integer urtid) {
+		HouseholdDAO houseHoldDAO = new HouseholdDAO(urtid);
 		return new Gson().toJson(houseHoldDAO.getList());
     }
 

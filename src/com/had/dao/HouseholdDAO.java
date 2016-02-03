@@ -35,13 +35,13 @@ public class HouseholdDAO implements AbstractDAO {
     
     List<Household> houseHold;
     private String builtQuery;
+    Integer urtid;
 	public HouseholdDAO(Integer urtid) {
 		houseHold = new ArrayList<>();
         List<String> columns = new ArrayList<>();
         Map<String,String> tables= new ConcurrentHashMap<>();
         List<String> whereEquals= new ArrayList<>();
-       
-      
+        this.urtid = urtid;
         if(urtid == 0)
         {
             columns.add(STATE_COLUMN_NAME);
@@ -115,7 +115,7 @@ public class HouseholdDAO implements AbstractDAO {
 	                 Statement statement = connection.createStatement();
 	                 ResultSet rs = statement.executeQuery(builtQuery)) {
 	                while (rs.next()) {
-	                        addObject(new Household(rs.getString(STATE_COLUMN_NAME), rs.getString(URT_ID_COLUMN_NAME), rs.getFloat(HHSIZE_1_COLUMN_NAME), rs.getFloat(HHSIZE_2_COLUMN_NAME),
+	                        addObject(new Household(rs.getString(STATE_COLUMN_NAME), urtid, rs.getFloat(HHSIZE_1_COLUMN_NAME), rs.getFloat(HHSIZE_2_COLUMN_NAME),
 	                        		rs.getFloat(HHSIZE_3_COLUMN_NAME), rs.getFloat(HHSIZE_4_COLUMN_NAME), rs.getFloat(HHSIZE_5_COLUMN_NAME), rs.getFloat(HHSIZE_6_COLUMN_NAME), 
 	                        		rs.getFloat(HHSIZE_7_10_COLUMN_NAME), rs.getFloat(HHSIZE_11_14_COLUMN_NAME), rs.getFloat(HHSIZE_15_MORE_COLUMN_NAME), rs.getFloat(MEAN_HHSIZE_COLUMN_NAME)));
 	                		

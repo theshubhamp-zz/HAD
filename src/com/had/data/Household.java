@@ -94,7 +94,7 @@ public class Household
     }
     
     public float getHHSIZE_6() {
-        return stHHSIZE_6;
+        return HHSIZE_6;
     }
     
     public void setHHSIZE_6(float HHSIZE_6) {
