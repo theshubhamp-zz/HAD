@@ -1,0 +1,33 @@
+<!-- total house hold nos and urban rural total values for each state: multiline graph-->
+<!-- Query: SELECT 
+    STATE_NAME,URT_ID,HHSIZE_1+HHSIZE_2+HHSIZE_3+ HHSIZE_4+ HHSIZE_5+ HHSIZE_6+ HHSIZE_7_10+ HHSIZE_11_14+ HHSIZE_15_MORE as hh_no
+FROM
+    HH
+INNER JOIN MAIN_TABLE MT
+WHERE
+    HH.STATE_ID=MT.STATE_ID
+group by
+    URT_ID,MT.STATE_ID
+-->
+
+<html>
+<div id="chartContainer">
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.14/d3.js"></script>
+  <script src="http://dimplejs.org/dist/dimple.v2.1.6.min.js"></script>
+  <script type="text/javascript">
+    var svg = dimple.newSvg("#chartContainer", 690, 500);
+    d3.json("http://192.168.1.35/hhurtsum.CSV", function (data) {
+ 
+      var myChart = new dimple.chart(svg, data);
+      myChart.setBounds(60, 30, 505, 305);
+      var x = myChart.addCategoryAxis("x", "stateName");
+      x.addOrderRule("data.stateName");
+      var y=myChart.addMeasureAxis("y", "HHSIZE_NO");
+      myChart.addSeries("urt_id", dimple.plot.line);
+      var leg = myChart.addLegend(60, 10, 500, 20, "right");
+      myChart.draw();
+
+    });
+  </script>
+</div>
+</html>

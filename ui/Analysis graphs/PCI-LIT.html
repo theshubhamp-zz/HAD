@@ -1,0 +1,26 @@
+<html>
+<div id="chartContainer">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.14/d3.js"></script>
+  <script src="http://dimplejs.org/dist/dimple.v2.1.6.min.js"></script>
+  <script type="text/javascript">
+    var svg = dimple.newSvg("#chartContainer", 790, 500);
+    d3.json("http://192.168.1.35/A3.CSV", function (data) {
+
+      var myChart = new dimple.chart(svg, data);
+      myChart.setBounds(60, 30, 700, 300);
+      var x = myChart.addCategoryAxis("x", "stateName");
+      myChart.addMeasureAxis("y", "literacyRate2011");
+
+      myChart.addColorAxis("percapitaYear2010_11", ["green", "yellow", "red"]);
+
+      // Add a thick line with markers
+      var lines = myChart.addSeries(null, dimple.plot.line); 
+      lines.lineWeight = 5;
+      lines.lineMarkers = true;
+
+      myChart.draw();
+
+    });
+  </script>
+</div>
+</html>

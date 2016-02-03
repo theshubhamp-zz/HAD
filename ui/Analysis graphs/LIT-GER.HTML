@@ -1,0 +1,28 @@
+<!-- litearacy and gross enrol ratio -->
+<html>
+<div id="chartContainer">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.14/d3.js"></script>
+  <script src="http://dimplejs.org/dist/dimple.v2.1.6.min.js"></script>
+  <script type="text/javascript">
+    var svg = dimple.newSvg("#chartContainer", 690, 500);
+    d3.json("http://192.168.1.35/A1.CSV", function (data) {
+      var myChart = new dimple.chart(svg, data);
+      myChart.setBounds(20, 20, 530, 430)
+
+     //doughnut for literacy
+      myChart.addMeasureAxis("p", "literacyRate2011");
+      var a = myChart.addSeries("stateName", dimple.plot.pie);
+      a.innerRadius = "-50px";
+      myChart.draw();
+
+      //pie for gross enrolment ratio
+      myChart.addMeasureAxis("p", "allTotal");
+      var a = myChart.addSeries("stateName", dimple.plot.pie);
+      a.outerRadius = "-70px";
+      myChart.addLegend(520, 20, 90, 300, "left");
+      myChart.draw();
+    });
+  
+  </script>
+</div>
+</html>
