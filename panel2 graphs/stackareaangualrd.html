@@ -1,0 +1,31 @@
+  <script type="text/javascript">
+        var app = angular.module("Literacy", ['angular-dimple']);
+
+
+        app.controller('bgraphctrl', ['$scope', 'dataService', function($scope, dataService) {
+        dataService.getData().then(function(response) {
+        $scope.graphData = response.data;
+        console.log($scope.graphData);
+            });
+        }])
+        .service('dataService', ['$http', function($http) {
+          return {
+            getData: function() {
+              return $http.get('CHARTNAME.json');
+            }
+          };
+        }]);
+</script>
+</head>
+<body ng-app='Literacy'>
+    <div ng-controller="bgraphctrl">
+    <graph data="graphData">
+  <x field="Month" order-by="Date"></x>
+  <y field="Unit Sales"></y>
+  <graph-legend></graph-legend>
+  <stacked-area field="Owner"></area>
+</graph>
+
+    </div>
+
+</body>
