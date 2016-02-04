@@ -7,7 +7,7 @@ package com.had.data;
 
 public class GrossEnrollRatio
 {
-    String stateName;
+    String name;
     float allMale;
     float allFemale;
     float allTotal;
@@ -19,9 +19,9 @@ public class GrossEnrollRatio
     float stTotal;
     
     
-    public GrossEnrollRatio(String stateName,float allMale, float allFemale,float allTotal,float scMale,float scFemale,float scTotal,float stMale,float stFemale,float stTotal)
+    public GrossEnrollRatio(String name,float allMale, float allFemale,float allTotal,float scMale,float scFemale,float scTotal,float stMale,float stFemale,float stTotal)
     {
-        this.stateName = stateName;
+        this.name = name;
         this.allMale = allMale;
         this.allFemale = allFemale;
         this.allTotal = allTotal;
@@ -33,12 +33,12 @@ public class GrossEnrollRatio
         this.stTotal = stTotal;
     }
     
-    public String getStateName() {
-        return stateName;
+    public String getName() {
+        return name;
     }
     
-    public void setStateName(String stateName) {
-        this.stateName = stateName;
+    public void setName(String name) {
+        this.name = name;
     }
     
     public float getAllMale() {

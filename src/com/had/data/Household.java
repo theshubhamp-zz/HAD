@@ -7,7 +7,7 @@ package com.had.data;
 
 public class Household
 {
-    String stateName;
+    String name;
     int urt_id;
     float HHSIZE_1;
     float HHSIZE_2;
@@ -21,9 +21,9 @@ public class Household
     float MEAN_HHSIZE;
     
     
-    public Household(String stateName,int urt_id, float HHSIZE_1,float HHSIZE_2,float HHSIZE_3,float HHSIZE_4,float HHSIZE_5,float HHSIZE_6,float HHSIZE_7_10,float HHSIZE_11_14,float HHSIZE_15_MORE,float MEAN_HHSIZE)
+    public Household(String name,int urt_id, float HHSIZE_1,float HHSIZE_2,float HHSIZE_3,float HHSIZE_4,float HHSIZE_5,float HHSIZE_6,float HHSIZE_7_10,float HHSIZE_11_14,float HHSIZE_15_MORE,float MEAN_HHSIZE)
     {
-        this.stateName = stateName;
+        this.name = name;
         this.urt_id = urt_id;
         this.HHSIZE_1 = HHSIZE_1;
         this.HHSIZE_2 = HHSIZE_2;
@@ -37,12 +37,12 @@ public class Household
         this.MEAN_HHSIZE = MEAN_HHSIZE;
     }
     
-    public String getStateName() {
-        return stateName;
+    public String getName() {
+        return name;
     }
     
-    public void setStateName(String stateName) {
-        this.stateName = stateName;
+    public void setName(String stateName) {
+        this.name = name;
     }
     
     public float geturt_id() {

@@ -7,23 +7,23 @@ package com.had.data;
 
 public class PerCapita
 {
-    String stateName;
+    String name;
     float percapitaYear2009_10;
     float percapitaYear2010_11;
     
-    public PerCapita(String stateName,float percapitaYear2009_10,float percapitaYear2010_11)
+    public PerCapita(String name,float percapitaYear2009_10,float percapitaYear2010_11)
     {
-        this.stateName = stateName;
+        this.name = name;
         this.percapitaYear2009_10 = percapitaYear2009_10;
         this.percapitaYear2010_11 = percapitaYear2010_11;
     }
     
-    public String getStateName() {
-        return stateName;
+    public String getName() {
+        return name;
     }
     
-    public void setStateName(String stateName) {
-        this.stateName = stateName;
+    public void setName(String name) {
+        this.name = name;
     }
     
     public float getPerCapitaYear2009_10() {
