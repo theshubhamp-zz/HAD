@@ -1,0 +1,69 @@
+ //pci-lit
+	<graph data="graphData" width="100%" height="600px">
+    <x field="stateName" title="States"></x>
+    <y field="percapitaYear2010_11" title="Per Capita Income"></y>
+    <graph-legend></graph-legend>
+	<bar field="stateName" order-by="stateName"></bar>
+	<line field="stateName" y="literacyRate2011" ytitle="Literacy Rate"></line>
+  </graph>
+
+
+  
+	 //gdp-lit area-bar
+	 	<graph data="graphData" width="100%" height="600px">
+    <x field="stateName" title="States"></x>
+    <y field="literacyRate2011" title="Literacy Rate"></y>
+	 <area field=null></area>
+    <graph-legend></graph-legend>
+    <bar field="stateName" order-by="stateName" y="gdpYear2010_11" ytitle="Gross domestic prodict (in Rs. crore)"></bar>
+  </graph>
+
+	  
+	  
+
+     //pci-gdp area-line
+   <graph data="graphData" width="100%" height="600px">      
+    <x field="stateName" title="States"></x>
+    <y field="percapitaYear2010_11" title="Per Capita Income"></y>
+    <area field=null></area>
+	<graph-legend></graph-legend>
+  	  <line field="stateName" y="gdpYear2010_11" ytitle="Gross Domestic Product"></line>
+  </graph>
+  
+	  
+	  
+	  
+	  
+	  //lit-pop line-bar
+	<graph data="graphData" width="100%" height="600px">
+    <x field="stateName" title="States"></x>
+    <y field="populationYear2011" title="Population"></y>
+    <graph-legend></graph-legend>
+    <bar field="stateName" order-by="stateName"></bar>
+    <line field="stateName"  y="literacyRate2011" ytitle="Literacy Rate"></line>
+  </graph>
+	  
+
+	  
+LIT-GER pie inside ring     
+
+  <graph data="graphData" width="100%" height="600px">
+    <r field="allTotal" order-by="stateName"></r>
+    <graph-legend></graph-legend>
+    <ring field="stateName" thickness="20"></ring>
+		<r field="literacyRate2011"></r>
+      <ring field="stateName" thickness="40" diameter="78"></ring>
+  </graph>
+	  
+
+	  //pci-pop ring-ring
+
+	  <graph data="graphData" width="100%" height="600px">
+	  <r field="percapitaYear2010_11"></r>
+      <graph-legend></graph-legend>
+      <ring field="stateName" thickness="20"></ring>
+	  <r field="populationYear2011"></r>
+	 <ring field="stateName" thickness="20" diameter="75"></ring>
+	</graph>
+	
+	
