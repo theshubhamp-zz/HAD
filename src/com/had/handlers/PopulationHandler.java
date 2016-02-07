@@ -8,9 +8,6 @@ import com.had.dao.PopulationDAO;
  * @since January 13, 2016
  */
 public class PopulationHandler {
-	public PopulationHandler() {
-	}
-
 	public String getPopulationData(Integer stateid) {
 		PopulationDAO populationDAO = new PopulationDAO(stateid);
 		return new Gson().toJson(populationDAO.getList());
