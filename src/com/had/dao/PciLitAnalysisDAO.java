@@ -62,7 +62,7 @@ public class PciLitAnalysisDAO implements AbstractDAO{
                  Statement statement = connection.createStatement();
                  ResultSet rs = statement.executeQuery(builtQuery)) {
                 while (rs.next()) {
-                        addObject(new PciLitAnalysis(rs.getString(STATE_NAME_COLUMN_NAME), rs.getInt(PCI_2010_2011_COLUMN_NAME), rs.getInt(LIT_2011_COLUMN_NAME)));
+                        addObject(new PciLitAnalysis(rs.getString(STATE_NAME_COLUMN_NAME), rs.getFloat(PCI_2010_2011_COLUMN_NAME), rs.getFloat(LIT_2011_COLUMN_NAME)));
                 }
             }
         }

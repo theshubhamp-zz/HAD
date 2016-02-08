@@ -6,10 +6,10 @@ package com.had.data;
  */
 public class PciLitAnalysis {
     String name;
-    int PCI_2010_11;
-    int LIT_2011;
+    float PCI_2010_11;
+    float LIT_2011;
 
-    public PciLitAnalysis(String name, int PCI_2010_11, int LIT_2011) {
+    public PciLitAnalysis(String name, float PCI_2010_11, float LIT_2011) {
         this.name = name;
         this.PCI_2010_11 = PCI_2010_11;
         this.LIT_2011 = LIT_2011;
@@ -23,19 +23,19 @@ public class PciLitAnalysis {
         this.name = name;
     }
 
-    public int getPCI_2010_11() {
+    public float getPCI_2010_11() {
         return PCI_2010_11;
     }
 
-    public void setPCI_2010_11(int PCI_2010_11) {
+    public void setPCI_2010_11(float PCI_2010_11) {
         this.PCI_2010_11 = PCI_2010_11;
     }
 
-    public int getLIT_2011() {
+    public float getLIT_2011() {
         return LIT_2011;
     }
 
-    public void setLIT_2011(int LIT_2011) {
+    public void setLIT_2011(float LIT_2011) {
         this.LIT_2011 = LIT_2011;
     }
 }
