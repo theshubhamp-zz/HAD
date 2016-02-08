@@ -10,7 +10,7 @@ import com.had.dao.PciLitAnalysisDAO;
  */
 public class GdpPciAnalysisHandler {
     public String getAnalysisData() {
-        GdpPciAnalysisDAO populationDAO = new GdpPciAnalysisDAO();
-        return new Gson().toJson(populationDAO.getList());
+        GdpPciAnalysisDAO gdpPciAnalysisDAO = new GdpPciAnalysisDAO();
+        return new Gson().toJson(gdpPciAnalysisDAO.getList());
     }
 }

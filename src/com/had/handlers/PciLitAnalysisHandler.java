@@ -9,7 +9,7 @@ import com.had.dao.PciLitAnalysisDAO;
  */
 public class PciLitAnalysisHandler {
     public String getAnalysisData() {
-        PciLitAnalysisDAO populationDAO = new PciLitAnalysisDAO();
-        return new Gson().toJson(populationDAO.getList());
+        PciLitAnalysisDAO pciLitAnalysisDAO = new PciLitAnalysisDAO();
+        return new Gson().toJson(pciLitAnalysisDAO.getList());
     }
 }
