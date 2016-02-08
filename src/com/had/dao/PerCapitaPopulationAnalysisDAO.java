@@ -64,7 +64,7 @@ public class PerCapitaPopulationAnalysisDAO implements AbstractDAO
             Class.forName(Constants.JDBC_DRIVER);
             try (Connection connection = DriverManager.getConnection(Constants.DB_URL, Constants.USER, Constants.PASS);
                  Statement statement = connection.createStatement();
-                 ResultSet rs = statement.executeQuery(builtQuery) {
+                 ResultSet rs = statement.executeQuery(builtQuery)) {
                 while (rs.next()) {
                         addObject(new PerCapitaPopulationAnalysis(rs.getString(STATE_COLUMN_NAME), rs.getFloat(PCI_2010_11_COLUMN_NAME), rs.getInt(POP_2011_COLUMN_NAME)));
 
