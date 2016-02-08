@@ -43,88 +43,109 @@
                 </md-content>
             </md-tab>
             <md-tab label="Statewise Charts">
-                <md-content class="md-padding">
-                    <div layout="row" layout-xs="column">
-                        <div id="statediv" flex ng-click="showDialog($ev,popDataState,name,populationYear2011)">
-                            <h3>Population Chart</h3>
-                            <graph data="popDataState"  width="600px" height="600px">
-                                <x field="name" title="State"></x>
-                                <y field="populationYear2011" title="Population in 2011"></y>
-                                <bar field="populationYear2011" ></bar>
-                            </graph>
-                        </div>
-                        <div flex>
-                            <h3>Per Capita Income Chart</h3>
-                                <graph data="pciDataState" width="600px" height="600px">
+                    <md-tabs md-dynamic-height md-border-bottom>
+                        <md-tab label="Population">
+                            <md-content>
+                                <graph data="popDataState" width="1800" height="800">
+                                    <x field="name" title="State"></x>
+                                    <y field="populationYear2011" title="Population in 2011"></y>
+                                    <bar field="populationYear2011" ></bar>
+                                </graph>
+                            </md-content>
+                        </md-tab>
+                        <md-tab label="Per Capita Income">
+                            <md-content>
+                                <graph data="pciDataState" width="1800" height="800">
                                     <x field="name" title="State"></x>
                                     <y field="percapitaYear2009_10" title="PerCapita in 2009-10"></y>
                                     <bar field="percapitaYear2009_10" ></bar>
                                 </graph>
-                        </div>
-                    </div>
-                    <div layout="row" layout-xs="column">
-                        <div flex>
-                            <h3>GDP Chart</h3>
-                            <graph data="gdpDataState" width="600px" height="600px">
-                                <x field="name" title="State"></x>
-                                <y field="gdpYear2010_11" title="GDP in 2010-11"></y>
-                                <bar field="gdpYear2010_11" ></bar>
-                            </graph>
-                        </div>
-                        <div flex>
-                            <h3>Literacy Rate Chart</h3>
-                                <graph data="literacyDataState" width="600px"  height="600px">
+                            </md-content>
+                        </md-tab>
+                        <md-tab label="Gross Domestic Produce">
+                            <md-content>
+                                <graph data="gdpDataState" width="1800" height="800">
+                                    <x field="name" title="State"></x>
+                                    <y field="gdpYear2010_11" title="GDP in 2010-11"></y>
+                                    <bar field="gdpYear2010_11" ></bar>
+                                </graph>
+                            </md-content>
+                        </md-tab>
+                        <md-tab label="Literacy Rate">
+                            <md-content>
+                                <graph data="literacyDataState" width="1800" height="800">
                                     <x field="name" title="State"></x>
                                     <y field="literacyRate2011" title="Literacy Rate in 2011"></y>
                                     <bar field="literacyRate2011" ></bar>
                                 </graph>
-                        </div>
-                    </div>
-                    <div layout="row" layout-xs="column">
-                        <div flex>
-                            <h3>Gross Enrollment Ratio Chart</h3>
-                            <graph data="gerDataState" width="600px"  height="600px">
-                                <x field="name" title="State"></x>
-                                <y field="allMale" title="Groos Enrollment Ratio in 2011"></y>
-                                <bar field="allMale" ></bar>
-                                <bar field="allFemale" ></bar>
-                            </graph>
-                        </div>
-                        <div flex>
-                            <h3>Mean Household Size Chart</h3>
-                            <graph data="hhDataState" width="600px"  height="600px">
-                                <x field="name" title="State"></x>
-                                <y field="MEAN_HHSIZE" title="Mean HH Size in 2011"></y>
-                                <bar field="MEAN_HHSIZE" ></bar>
-                            </graph>
-                        </div>
-                    </div>
-                </md-content>
+                            </md-content>
+                        </md-tab>
+                        <md-tab label="Gross Enrollment Ratio">
+                            <md-content>
+                                <graph data="gerDataState" width="1800" height="800">
+                                    <x field="name" title="State"></x>
+                                    <y field="allMale" title="Groos Enrollment Ratio in 2011"></y>
+                                    <bar field="allMale" ></bar>
+                                    <bar field="allFemale" ></bar>
+                                </graph>
+                            </md-content>
+                        </md-tab>
+                        <md-tab label="Mean Household Size">
+                            <md-content>
+                                <graph data="hhDataState" width="1800" height="800">
+                                    <x field="name" title="State"></x>
+                                    <y field="MEAN_HHSIZE" title="Mean HH Size in 2011"></y>
+                                    <bar field="MEAN_HHSIZE" ></bar>
+                                </graph>
+                            </md-content>
+                        </md-tab>
+                    </md-tabs>
             </md-tab>
             <md-tab label="{{stateTabName}}">
-                <md-content class="md-padding">
-                    <div layout="row" layout-xs="column">
-                        <div flex>
-                            <graph data="popDataDistrict" width="100%" height="600px">
+                    <md-tabs md-dynamic-height="" md-border-bottom="">
+                        <md-tab label="Population">
+                            <graph data="popDataDistrict" width="1800" height="800">
                                 <x field="name" title="District"></x>
                                 <y field="populationYear2011" title="Population in 2011"></y>
                                 <bar field="populationYear2011" ></bar>
                             </graph>
-                        </div>
-                        <div flex>
-                            <graph data="popDataDistrict" width="100%" height="600px">
+                        </md-tab>
+                        <md-tab label="Gross Domestic Produce">
+                            <graph data="gdpDataDistrict" width="1800" height="800">
                                 <x field="name" title="District"></x>
-                                <y field="populationYear2011" title="GDP in 2011"></y>
-                                <bar field="populationYear2011" ></bar>
+                                <y field="gdpYear2010_11" title="GDP in 2011"></y>
+                                <bar field="gdpYear2010_11" ></bar>
                             </graph>
-                        </div>
-                    </div>
-                </md-content>
+                        </md-tab>
+                        </md-tabs>
             </md-tab>
             <md-tab label="Analysis">
-                <md-content class="md-padding">
-                    Lorem Ipsum
-                </md-content>
+                    <md-tabs md-dynamic-height="" md-border-bottom="">
+                        <md-tab label="Analysis 1">
+                            Analysis 1
+                        </md-tab>
+                        <md-tab label="Analysis 2">
+                            Analysis 2
+                        </md-tab>
+                        <md-tab label="Analysis 3">
+                            Analysis 3
+                        </md-tab>
+                        <md-tab label="Analysis 4">
+                            Analysis 4
+                        </md-tab>
+                        <md-tab label="Analysis 5">
+                            Analysis 5
+                        </md-tab>
+                        <md-tab label="Analysis 6">
+                            Analysis 6
+                        </md-tab>
+                        <md-tab label="Analysis 7">
+                            Analysis 7
+                        </md-tab>
+                        <md-tab label="Analysis 8">
+                            Analysis 8
+                        </md-tab>
+                    </md-tabs>
             </md-tab>
         </md-tabs>
     </md-content>

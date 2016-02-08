@@ -141,13 +141,21 @@ angular.module('angular-dimple.graph', [])
 
         var width = $attrs.width ? $attrs.width : '100%';
         var height = $attrs.height ? $attrs.height : '100%';
+        var w ;
+        var h ;
 
         var svg = dimple.newSvg('#dng-'+ id +'', width, height);
         var data = $scope.data;
 
+        if(width != '100%' && height !='100%')
+        {
+          w = parseInt(width)-100;
+          h = parseInt(height)-100;
+        }
+
         // create the dimple chart using the d3 selection of our <svg> element
         chart = new dimple.chart(svg, data);
-        chart.setBounds(60,60,width,height);
+        chart.setBounds(60,60,w,h);
         /*if ($attrs.margin) {
           chart.setMargins($attrs.margin);
         } else {

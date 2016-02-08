@@ -1,7 +1,7 @@
 var hadApp = angular.module('hadApp',['ngMaterial', 'ngMessages','angular-dimple']);
 var unifiedController = hadApp.controller("unifiedController",function($scope, $http,$mdDialog) {
 	$scope.stateName = "Select a State from the map";
-	$scope.stateTabName = 'Unselected';
+	$scope.stateTabName = 'Districtwise Charts';
 	$scope.stateId = -1;
     $scope.stateSummary="";
     var states;
@@ -195,15 +195,3 @@ var unifiedController = hadApp.controller("unifiedController",function($scope, $
         });
     }
 });
-
-function DialogController($scope, $mdDialog,data,xf,yf) {
-    $scope.graphData = data;
-    $scope.x = xf;
-    $scope.y = yf;
-    $scope.hide = function() {
-        $mdDialog.hide();
-    }
-    $scope.cancel = function() {
-        $mdDialog.cancel();
-    }
-}
