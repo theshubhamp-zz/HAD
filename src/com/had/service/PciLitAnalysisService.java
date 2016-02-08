@@ -1,6 +1,5 @@
 package com.had.service;
 
-import com.had.handlers.GdpPciAnalysisHandler;
 import com.had.handlers.PciLitAnalysisHandler;
 
 import javax.ws.rs.GET;
@@ -10,12 +9,12 @@ import javax.ws.rs.Path;
  * @author Shubham S Patil
  * @since February 9, 2016
  */
-@Path("/gdppcianalysis")
-public class GdpPciService {
+@Path("/pcilitanalysis")
+public class PciLitAnalysisService {
     @GET
     public String sendAnalysisData()
     {
-        GdpPciAnalysisHandler handler = new GdpPciAnalysisHandler();
+        PciLitAnalysisHandler handler = new PciLitAnalysisHandler();
         return handler.getAnalysisData();
     }
 }

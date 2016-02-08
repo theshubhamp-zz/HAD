@@ -11,7 +11,7 @@ import javax.ws.rs.Path;
  * @since February 9, 2016
  */
 @Path("/hhurtanalysis")
-public class HhUrtService {
+public class HhUrtAnalysisService {
     @GET
     public String sendAnalysisData()
     {
