@@ -147,12 +147,12 @@ angular.module('angular-dimple.graph', [])
 
         // create the dimple chart using the d3 selection of our <svg> element
         chart = new dimple.chart(svg, data);
-
-        if ($attrs.margin) {
+        chart.setBounds(60,60,width,height);
+        /*if ($attrs.margin) {
           chart.setMargins($attrs.margin);
         } else {
           chart.setMargins(60, 60, 20, 40);
-        }
+        }*/
 
         // auto style
         var autoStyle = $attrs.autoStyle === 'false' ? true : false;

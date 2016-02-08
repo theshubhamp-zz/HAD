@@ -1,6 +1,7 @@
 var hadApp = angular.module('hadApp',['ngMaterial', 'ngMessages','angular-dimple']);
 var unifiedController = hadApp.controller("unifiedController",function($scope, $http,$mdDialog) {
 	$scope.stateName = "Select a State from the map";
+	$scope.stateTabName = 'Unselected';
 	$scope.stateId = -1;
     $scope.stateSummary="";
     var states;
@@ -13,42 +14,36 @@ var unifiedController = hadApp.controller("unifiedController",function($scope, $
         });
 	$http.get('api/population')
         .then(function(resp){
-            $scope.popDataStateGraph = resp.data;
             $scope.popDataState =  resp.data;
         },function(resp) {
             console.log(resp);
         });
     $http.get('api/pci')
         .then(function(resp){
-            $scope.pciDataStateGraph = resp.data;
             $scope.pciDataState =  resp.data;
         },function(resp) {
             console.log(resp);
         });
     $http.get('api/gdp')
         .then(function(resp){
-            $scope.gdpDataStateGraph = resp.data;
             $scope.gdpDataState = resp.data;
         },function(resp) {
             console.log(resp);
         });
     $http.get('api/literacy')
         .then(function(resp){
-            $scope.literacyDataStateGraph = resp.data;
             $scope.literacyDataState = resp.data;
         },function(resp) {
             console.log(resp);
         });
     $http.get('api/ger')
         .then(function(resp){
-            $scope.gerDataStateGraph = resp.data;
             $scope.gerDataState = resp.data;
         },function(resp) {
             console.log(resp);
         });
     $http.get('api/hh')
         .then(function(resp){
-            $scope.hhDataStateGraph = resp.data;
             $scope.hhDataState = resp.data;
         },function(resp) {
             console.log(resp);
@@ -147,26 +142,40 @@ var unifiedController = hadApp.controller("unifiedController",function($scope, $
                 $scope.stateId = item.stateid;
             }
         });
-        //pop-districtwise
+		$scope.stateTabName = $scope.stateName + " Districtwise Charts";
         $http.get('api/population?stateid='+$scope.stateId)
             .then(function(resp){
-                $scope.popDataDistrict = $scope.popDataDistrictGraph = resp.data;
-                //console.log($scope.popDataDistrict);
+                $scope.popDataDistrict = resp.data;
             },function(resp) {
                 console.log(resp);
             });
-        //
+		$http.get('api/gdp?stateid='+$scope.stateId)
+			.then(function(resp){
+				$scope.gdpDataDistrict = resp.data;
+			},function(resp) {
+				console.log(resp);
+			});
         if($scope.stateId>0)
         {
-            var idx = $scope.stateId;
-            $scope.stateSummary = [
-                $scope.popDataState[idx-1].name,
-                "Population is "+$scope.popDataState[idx-1].populationYear2011,
-                "GDP is "+$scope.gdpDataState[idx-1].gdpYear2010_11,
-                "Per Capita Income is "+$scope.pciDataState[idx-1].percapitaYear2009_10,
-                "Gross Enrollment for All Males is "+$scope.gerDataState[idx-1].allMale,
-                "Literacy Rate is "+$scope.literacyDataState[idx-1].literacyRate2011,
-                "Households with Size of 4 are "+$scope.hhDataState[idx-1].HHSIZE_4 ];
+            $scope.stateSummary = [];
+			$scope.popDataState.forEach(function(item,index,array) {
+				if($scope.stateName === item.name)
+				{$scope.stateSummary.push("Population is "+item.populationYear2011);}});
+			$scope.gdpDataState.forEach(function(item,index,array) {
+				if($scope.stateName === item.name)
+				{$scope.stateSummary.push("GDP is "+item.gdpYear2010_11);}});
+			$scope.pciDataState.forEach(function(item,index,array) {
+				if($scope.stateName === item.name)
+				{$scope.stateSummary.push("Per Capita Income is "+item.percapitaYear2010_11);}});
+			$scope.gerDataState.forEach(function(item,index,array) {
+				if($scope.stateName === item.name)
+				{$scope.stateSummary.push("Gross Enrollment Ratio for Males is "+item.allMale+"%");}});
+			$scope.literacyDataState.forEach(function(item,index,array) {
+				if($scope.stateName === item.name)
+				{$scope.stateSummary.push("Literacy Rate is "+item.literacyRate2011+"%");}});
+			$scope.hhDataState.forEach(function(item,index,array) {
+				if($scope.stateName === item.name)
+				{$scope.stateSummary.push("Households with size > 4 are "+item.HHSIZE_4);}});
         }
 	}
     //Dialog
