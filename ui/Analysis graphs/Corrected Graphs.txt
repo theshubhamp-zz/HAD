@@ -1,4 +1,4 @@
- //pci-lit
+1. //pci-lit
 	<graph data="graphData" width="100%" height="600px">
     <x field="stateName" title="States"></x>
     <y field="percapitaYear2010_11" title="Per Capita Income"></y>
@@ -9,7 +9,7 @@
 
 
   
-	 //gdp-lit area-bar
+2. //gdp-lit area-bar
 	 	<graph data="graphData" width="100%" height="600px">
     <x field="stateName" title="States"></x>
     <y field="literacyRate2011" title="Literacy Rate"></y>
@@ -19,9 +19,8 @@
   </graph>
 
 	  
-	  
 
-     //pci-gdp area-line
+ 3.  //pci-gdp area-line
    <graph data="graphData" width="100%" height="600px">      
     <x field="stateName" title="States"></x>
     <y field="percapitaYear2010_11" title="Per Capita Income"></y>
@@ -30,22 +29,18 @@
   	  <line field="stateName" y="gdpYear2010_11" ytitle="Gross Domestic Product"></line>
   </graph>
   
-	  
-	  
-	  
-	  
-	  //lit-pop line-bar
-	<graph data="graphData" width="100%" height="600px">
-    <x field="stateName" title="States"></x>
-    <y field="populationYear2011" title="Population"></y>
-    <graph-legend></graph-legend>
-    <bar field="stateName" order-by="stateName"></bar>
-    <line field="stateName"  y="literacyRate2011" ytitle="Literacy Rate"></line>
-  </graph>
-	  
+	
+4.  // HH-URT multiline graph
 
+<graph data="graphData" width="100%" height="600px">
+  <x field="stateName" order-by="stateName"></x>
+  <y field="HHSIZE_NO"></y>
+  <graph-legend></graph-legend>
+  <line field="urt_id"></line>
+</graph>
+	
 	  
-LIT-GER pie inside ring     
+5.  LIT-GER pie inside ring     
 
   <graph data="graphData" width="100%" height="600px">
     <r field="allTotal" order-by="stateName"></r>
@@ -56,7 +51,7 @@ LIT-GER pie inside ring
   </graph>
 	  
 
-	  //pci-pop ring-ring
+6.  //pci-pop ring-ring
 
 	  <graph data="graphData" width="100%" height="600px">
 	  <r field="percapitaYear2010_11"></r>
@@ -67,3 +62,5 @@ LIT-GER pie inside ring
 	</graph>
 	
 	
+
+
