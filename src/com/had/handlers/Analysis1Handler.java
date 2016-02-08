@@ -1,7 +1,7 @@
-package com.analysis.handlers;
+package com.had.handlers;
 
+import com.had.dao.Analysis1DAO;
 import com.google.gson.Gson;
-import com.analysis.dao.Analysis1DAO;
 
 /**
  * @author Akshat Shukla

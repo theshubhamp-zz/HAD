@@ -1,11 +1,11 @@
-package com.analysis.service;
+package com.had.service;
 
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 
 
-import com.analysis.handlers.Analysis1Handler;
+import com.had.handlers.Analysis1Handler;
 
 /**
  * @author Akshat Shukla

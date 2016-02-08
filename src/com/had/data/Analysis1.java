@@ -1,4 +1,4 @@
-package com.analysis.data;
+package com.had.data;
 
 /**
  * @author Akshat Shukla 
@@ -32,11 +32,11 @@ public class Analysis1 {
         this.literacyRate2011 = literacyRate2011;
     }
 
-    public int getLiteracyRate2011() {
+    public int getPopulationYear2011() {
         return populationYear2011;
     }
 
-    public void setLiteracyRate2011(int literacyRate2011) {
+    public void setPopulationYear2011(int populationYear2011) {
         this.populationYear2011 = populationYear2011;
     }
 }

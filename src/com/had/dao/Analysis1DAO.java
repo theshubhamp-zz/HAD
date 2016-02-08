@@ -1,6 +1,6 @@
 package com.had.dao;
 
-import com.analysis.data.Analysis1;
+import com.had.data.Analysis1;
 import com.had.util.Constants;
 import com.had.util.QueryHelper;
 
@@ -39,7 +39,7 @@ public class Analysis1DAO implements AbstractDAO
         //Query 1
         columns.add(STATE_COLUMN_NAME);
         columns.add(LIT_COLUMN_NAME);
-        columns.add("("+LIT_2011_COLUMN_NAME+"*"+"SUM("+POP_2011_COLUMN_NAME"))/100 as value");
+        columns.add("("+LIT_2011_COLUMN_NAME+"*"+"SUM("+POP_2011_COLUMN_NAME+"))/100 as value");
         tables.put("pop_districtwise","pd");
         tables.put("main_table","mt");
         tables.put("literacy_statewise","ls");
