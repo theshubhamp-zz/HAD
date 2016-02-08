@@ -62,9 +62,9 @@ public class GrossEnrollRatioLiteracyAnalysisDAO implements AbstractDAO
             Class.forName(Constants.JDBC_DRIVER);
             try (Connection connection = DriverManager.getConnection(Constants.DB_URL, Constants.USER, Constants.PASS);
                  Statement statement = connection.createStatement();
-                 ResultSet rs = statement.executeQuery(builtQuery) {
+                 ResultSet rs = statement.executeQuery(builtQuery)) {
                 while (rs.next()) {
-                        addObject(new GrossEnrollRatioLiteracyAnalysis(rs.getString(STATE_COLUMN_NAME), rs.getFloat(ALL_TOTAL_COLUMN_NAME), rs.getFloat(LIT_2011_COLUMN_NAME));
+                        addObject(new GrossEnrollRatioLiteracyAnalysis(rs.getString(STATE_COLUMN_NAME), rs.getFloat(ALL_TOTAL_COLUMN_NAME), rs.getFloat(LIT_2011_COLUMN_NAME)));
 
                 }
             }
