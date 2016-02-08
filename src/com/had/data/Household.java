@@ -41,7 +41,7 @@ public class Household
         return name;
     }
     
-    public void setName(String stateName) {
+    public void setName(String name) {
         this.name = name;
     }
     
