@@ -2,7 +2,6 @@
 	<graph data="graphData" width="100%" height="600px">
     <x field="stateName" title="States"></x>
     <y field="percapitaYear2010_11" title="Per Capita Income"></y>
-    <graph-legend></graph-legend>
 	<bar field="stateName" order-by="stateName"></bar>
 	<line field="stateName" y="literacyRate2011" ytitle="Literacy Rate"></line>
   </graph>
@@ -14,7 +13,6 @@
     <x field="stateName" title="States"></x>
     <y field="literacyRate2011" title="Literacy Rate"></y>
 	 <area field=null></area>
-    <graph-legend></graph-legend>
     <bar field="stateName" order-by="stateName" y="gdpYear2010_11" ytitle="Gross domestic prodict (in Rs. crore)"></bar>
   </graph>
 
@@ -25,7 +23,6 @@
     <x field="stateName" title="States"></x>
     <y field="percapitaYear2010_11" title="Per Capita Income"></y>
     <area field=null></area>
-	<graph-legend></graph-legend>
   	  <line field="stateName" y="gdpYear2010_11" ytitle="Gross Domestic Product"></line>
   </graph>
   
