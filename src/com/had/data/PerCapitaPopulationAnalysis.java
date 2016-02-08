@@ -10,7 +10,7 @@ public class PerCapitaPopulationAnalysis {
     float percapitaYear2010_11;
     int populationYear2011;
 
-    public Analysis1(String name, float percapitaYear2010_11, int populationYear2011) {
+    public PerCapitaPopulationAnalysis(String name, float percapitaYear2010_11, int populationYear2011) {
         this.name = name;
         this.percapitaYear2010_11 = percapitaYear2010_11;
         this.populationYear2011 = populationYear2011;
