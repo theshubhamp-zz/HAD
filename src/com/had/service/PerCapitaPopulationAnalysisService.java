@@ -10,7 +10,7 @@ import com.had.handlers.PerCapitaPopulationAnalysisHandler;
  * @author Akshat Shukla
  * @since February 9, 2016
  */
-@Path("/pci-pop_analysis")
+@Path("/pcipopanalysis")
 public class PerCapitaPopulationAnalysisService {
     @GET
     public String sendPerCapitaPopulationData()

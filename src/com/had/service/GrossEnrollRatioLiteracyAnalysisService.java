@@ -10,7 +10,7 @@ import com.had.handlers.GrossEnrollRatioLiteracyAnalysisHandler;
  * @author Akshat Shukla
  * @since February 9, 2016
  */
-@Path("/gre-lit_analysis")
+@Path("/grelitanalysis")
 public class GrossEnrollRatioLiteracyAnalysisService {
     @GET
     public String sendGrossEnrollRatioLiteracyData()
