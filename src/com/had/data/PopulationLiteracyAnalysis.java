@@ -28,12 +28,12 @@ public class PopulationLiteracyAnalysis {
         return col;
     }
 
-    public void setCol(float col) {
+    public void setCol(String col) {
         this.col = col;
     }
 
     public int getValue() {
-        return populationYear2011;
+        return value;
     }
 
     public void setValue(int value) {

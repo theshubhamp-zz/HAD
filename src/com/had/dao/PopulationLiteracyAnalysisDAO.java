@@ -22,7 +22,9 @@ public class PopulationLiteracyAnalysisDAO implements AbstractDAO
 {
 
 	private static final String STATE_COLUMN_NAME = "STATE_NAME";
-    List<PopulationLiteracyAnalysis> perCapitaPopulation;
+    private static final String COL_COLUMN_NAME = "COL";
+    private static final String VALUE_COLUMN_NAME = "VALUE";
+    List<PopulationLiteracyAnalysis> populationLiteracy;
     private String builtQuery;
 
     public PopulationLiteracyAnalysisDAO(){
@@ -52,7 +54,7 @@ public class PopulationLiteracyAnalysisDAO implements AbstractDAO
                  Statement statement = connection.createStatement();
                  ResultSet rs = statement.executeQuery(builtQuery)) {
                 while (rs.next()) {
-                        addObject(new PopulationLiteracyAnalysis(rs.getString(STATE_COLUMN_NAME), rs.getFloat(COL), rs.getInt(VALUE)));
+                        addObject(new PopulationLiteracyAnalysis(rs.getString(STATE_COLUMN_NAME), rs.getString(COL_COLUMN_NAME), rs.getInt(VALUE_COLUMN_NAME)));
 
                 }
             }
