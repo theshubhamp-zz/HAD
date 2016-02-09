@@ -21,7 +21,7 @@
     <md-content>
         <md-tabs md-dynamic-height="" md-border-bottom="">
             <md-tab label="Map">
-                <md-content class="md-padding">
+                <md-content class="md-padding" id="export">
                     <div layout="row" layout-xs="column">
                         <div flex>
                             <div id="map"></div>
@@ -37,6 +37,7 @@
                                     {{line}}
                                     <br>
                                 </div>
+                                <button onclick="exp()">Export</button>
                             </md-content>
                         </div>
                     </div>
