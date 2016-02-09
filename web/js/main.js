@@ -66,6 +66,30 @@ var unifiedController = hadApp.controller("unifiedController",function($scope, $
 		},function(resp) {
 			console.log(resp);
 		});
+	$http.get('api/hhurtanalysis')
+		.then(function(resp){
+			$scope.hhurtAnalysisData = resp.data;
+		},function(resp) {
+			console.log(resp);
+		});
+	$http.get('api/greanalysis')
+		.then(function(resp){
+			$scope.greAnalysisData = resp.data;
+		},function(resp) {
+			console.log(resp);
+		});
+	$http.get('api/grelitanalysis')
+		.then(function(resp){
+			$scope.grelitAnalysisData = resp.data;
+		},function(resp) {
+			console.log(resp);
+		});
+	$http.get('api/pcipopanalysis')
+		.then(function(resp){
+			$scope.pcipopAnalysisData = resp.data;
+		},function(resp) {
+			console.log(resp);
+		});
 	$scope.setStateDetailsWithRegionCode = function(regionCode){
 		switch(regionCode.split('-')[1])
 		{

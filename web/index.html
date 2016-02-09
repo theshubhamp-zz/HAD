@@ -2,7 +2,7 @@
 <head>
     <!-- Angular Material style sheet -->
     <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.4/angular-material.min.css">
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
@@ -25,7 +25,7 @@
                     <div layout="row" layout-xs="column">
                         <div flex>
                             <div id="map"></div>
-                            <script type="text/javascript" src="mapping.js"></script>
+                            <script type="text/javascript" src="js/mapping.js"></script>
                         </div>
                         <div flex>
                             <md-toolbar md-scroll-shrink>
@@ -46,7 +46,7 @@
                     <md-tabs md-dynamic-height md-border-bottom>
                         <md-tab label="Population">
                             <md-content>
-                                <graph data="popDataState" width="1800" height="800">
+                                <graph data="popDataState" width="1800" height="800" onclick="getPdf(event)">
                                     <x field="name" title="State"></x>
                                     <y field="populationYear2011" title="Population in 2011"></y>
                                     <bar field="populationYear2011" ></bar>
@@ -132,8 +132,14 @@
                         <md-tab label="POP-LIT Analysis">
                             BOO
                         </md-tab>
-                        <md-tab label="Analysis 3">
-
+                        <md-tab label="HH-URT">
+                            <graph data="hhurtAnalysisData" width="1800" height="800">
+                                <x field="name" order-by="name"></x>
+                                <y field="hh_no"></y>
+                                <bar field="hh_no" filter="urt_id:0"></bar>
+                                <bar field="hh_no" filter="urt_id:1"></bar>
+                                <bar field="hh_no" filter="urt_id:2"></bar>
+                            </graph>
                         </md-tab>
                         <md-tab label="Analysis 4">
                             Analysis 4
@@ -147,9 +153,6 @@
                         <md-tab label="Analysis 7">
                             Analysis 7
                         </md-tab>
-                        <md-tab label="Analysis 8">
-                            Analysis 8
-                        </md-tab>
                     </md-tabs>
             </md-tab>
         </md-tabs>
@@ -157,8 +160,20 @@
 </div>
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script src="http://dimplejs.org/dist/dimple.v2.1.0.min.js"></script>
-<script type="text/javascript" src="main.js"></script>
-<script src="angular-dimple.js"></script>
-
+<script type="text/javascript" src="js/main.js"></script>
+<script src="js/angular-dimple.js"></script>
+<script type="text/javascript" src = "js/png.js"></script>
+<script type="text/javascript" src = "js/zlib.js"></script>
+<script type="text/javascript" src = "js/html2canvas.js"></script>
+<script type="text/javascript" src = "js/jspdf.js"></script>
+<script type="text/javascript" src = "js/jspdf.plugin.from_html.js"></script>
+<script type="text/javascript" src = "js/jspdf.plugin.split_text_to_size.js"></script>
+<script type="text/javascript" src = "js/jspdf.plugin.standard_fonts_metrics.js">  </script>
+<script type="text/javascript" src = "js/FileSaver.js"></script>
+<script type="text/javascript" src = "js/jspdf.plugin.cell.js"></script>
+<script type="text/javascript" src = "js/html2canvas.js"></script>
+<script type="text/javascript" src = "js/addimage.js"></script>
+<script type="text/javascript" src = "js/png_support.js"></script>
+<script type="text/javascript" src = "js/export.js"></script>
 </body>
 </html>
