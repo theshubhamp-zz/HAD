@@ -266,7 +266,14 @@ angular.module('angular-dimple.line', [])
 
       function addLine () {
         var filteredData;
-        line = chart.addSeries([$attrs.field], dimple.plot.line);
+        if($attrs.y)
+        {
+          var y1=chart.addMeasureAxis("y",$attrs.y);
+          y1.title=$attrs.ytitle;
+          line = chart.addSeries([$attrs.field], dimple.plot.line, [x,y1]);
+        }
+        else
+        { line = chart.addSeries([$attrs.field], dimple.plot.line); }
         graphController.filter($attrs);
         line.lineMarkers = true;
         graphController.draw();

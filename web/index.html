@@ -125,33 +125,61 @@
                             <graph data="pcilitAnalysisData" width="1800" height="800">
                                 <x field="name" title="States"></x>
                                 <y field="PCI_2010_11" title="Per Capita Income"></y>
-                                <bar field="PCI_2010_11" order-by="name"></bar>
-                                <line field="LIT_2011" y="LIT_2011" ytitle="Literacy Rate"></line>
+                                <bar field="name"></bar>
+                                <line field="name" y="LIT_2011" ytitle="Literacy Rate"></line>
                             </graph>
                         </md-tab>
                         <md-tab label="POP-LIT Analysis">
-                            BOO
+                            <graph data="poplitAnalysisData" width="1800" height="800">
+                                <x group-by="col" field="name" order-by="name" type="Category" title="States"></x>
+                                <y field="value" type="Measure" title="Number of people"></y>
+                                <bar field="col" value="POP"></bar>
+                                <bar field="col" value="LIT"></bar>
+                            </graph>
                         </md-tab>
-                        <md-tab label="HH-URT">
+                        <md-tab label="HH-URT Analysis">
                             <graph data="hhurtAnalysisData" width="1800" height="800">
                                 <x field="name" order-by="name"></x>
                                 <y field="hh_no"></y>
-                                <bar field="hh_no" filter="urt_id:0"></bar>
-                                <bar field="hh_no" filter="urt_id:1"></bar>
-                                <bar field="hh_no" filter="urt_id:2"></bar>
+                                <graph-legend></graph-legend>
+                                <line field="urt_id"></line>
                             </graph>
                         </md-tab>
-                        <md-tab label="Analysis 4">
-                            Analysis 4
+                        <md-tab label="GDP-PCI Analysis">
+                            <graph data="gdppciAnalysisData" width="1800" height="800">
+                                <x field="name" title="States"></x>
+                                <y field="PCI_2010_11" title="Per Capita Income"></y>
+                                <area field=null></area>
+                                <line field="name" y="GDP_2010_11" ytitle="Gross Domestic Product"></line>
+                              </graph>
+
                         </md-tab>
-                        <md-tab label="Analysis 5">
-                            Analysis 5
+                        <md-tab label="GER Analysis">
+                            <graph data="greAnalysisData" width="1800" height="800">
+                                <x field="name" order-by="name" title="States"></x>
+                                <y field="value" title="Gross Enrolment Ratio for age group 18-23 (2010-11)"></y>
+                                <graph-legend></graph-legend>
+                                <stacked-area field="col"></stacked-area>
+                            </graph>
                         </md-tab>
-                        <md-tab label="Analysis 6">
+                        <md-tab label="GER-LIT Analysis">
                             Analysis 6
+                            <graph data="grelitAnalysisData" width="1800" height="800">
+                                <r field="allTotal" order-by="name"></r>
+                                <graph-legend></graph-legend>
+                                <ring field="name" thickness="20"></ring>
+                                <r field="literacyRate2011"></r>
+                                <ring field="name" thickness="40" diameter="78"></ring>
+                            </graph>
                         </md-tab>
-                        <md-tab label="Analysis 7">
-                            Analysis 7
+                        <md-tab label="PCI-POP Analysis">
+                            <graph data="pcipopAnalysisData" width="1800" height="800">
+                                <r field="percapitaYear2010_11"></r>
+                                <graph-legend></graph-legend>
+                                <ring field="name" thickness="20"></ring>
+                                <r field="populationYear2011"></r>
+                                <ring field="name" thickness="20" diameter="75"></ring>
+                            </graph>
                         </md-tab>
                     </md-tabs>
             </md-tab>
