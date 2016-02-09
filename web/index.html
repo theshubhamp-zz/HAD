@@ -121,14 +121,19 @@
             </md-tab>
             <md-tab label="Analysis">
                     <md-tabs md-dynamic-height="" md-border-bottom="">
-                        <md-tab label="Analysis 1">
-                            Analysis 1
+                        <md-tab label="PCI-LIT Analysis">
+                            <graph data="pcilitAnalysisData" width="1800" height="800">
+                                <x field="name" title="States"></x>
+                                <y field="PCI_2010_11" title="Per Capita Income"></y>
+                                <bar field="PCI_2010_11" order-by="name"></bar>
+                                <line field="LIT_2011" y="LIT_2011" ytitle="Literacy Rate"></line>
+                            </graph>
                         </md-tab>
-                        <md-tab label="Analysis 2">
-                            Analysis 2
+                        <md-tab label="POP-LIT Analysis">
+                            BOO
                         </md-tab>
                         <md-tab label="Analysis 3">
-                            Analysis 3
+
                         </md-tab>
                         <md-tab label="Analysis 4">
                             Analysis 4

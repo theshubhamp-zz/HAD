@@ -48,6 +48,24 @@ var unifiedController = hadApp.controller("unifiedController",function($scope, $
         },function(resp) {
             console.log(resp);
         });
+	$http.get('api/pcilitanalysis')
+		.then(function(resp){
+			$scope.pcilitAnalysisData = resp.data;
+		},function(resp) {
+			console.log(resp);
+		});
+	$http.get('api/poplitanalysis')
+		.then(function(resp){
+			$scope.poplitAnalysisData = resp.data;
+		},function(resp) {
+			console.log(resp);
+		});
+	$http.get('api/gdppcianalysis')
+		.then(function(resp){
+			$scope.gdppciAnalysisData = resp.data;
+		},function(resp) {
+			console.log(resp);
+		});
 	$scope.setStateDetailsWithRegionCode = function(regionCode){
 		switch(regionCode.split('-')[1])
 		{

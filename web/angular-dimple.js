@@ -77,7 +77,16 @@ angular.module('angular-dimple.bar', [])
 
       function addBar () {
         var filteredData;
-        bar = chart.addSeries([$attrs.field], dimple.plot.bar);
+        if($attrs.y)
+        {
+          var y1 = chart.addMeasureAxis("y",$attrs.y);
+          y1.title = $attrs.ytitle;
+          bar = chart.addSeries([$attrs.field],dimple.plot.bar,[x,y1]);
+        }
+        else
+        {
+          bar = chart.addSeries([$attrs.field], dimple.plot.bar);
+        }
         graphController.filter($attrs);
         graphController.draw();
       }
