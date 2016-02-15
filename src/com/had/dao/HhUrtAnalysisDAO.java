@@ -33,10 +33,10 @@ public class HhUrtAnalysisDAO implements AbstractDAO{
         columns.add(STATE_NAME_COLUMN_NAME);
         columns.add(URT_ID_COLUMN_NAME);
         columns.add("HHSIZE_1+HHSIZE_2+HHSIZE_3+ HHSIZE_4+ HHSIZE_5+ HHSIZE_6+ HHSIZE_7_10+ HHSIZE_11_14+ HHSIZE_15_MORE"+" as "+HH_NO_COLUMN_NAME);
-        tables.put("HH","HH");
-        tables.put("MAIN_TABLE","MT");
-        whereEquals.add("HH.STATE_ID=MT.STATE_ID");
-        builtQuery = QueryHelper.selectQuery(columns,tables,whereEquals,"URT_ID,MT.STATE_ID");
+        tables.put("hh","hh");
+        tables.put("main_table","mt");
+        whereEquals.add("hh.STATE_ID=mt.STATE_ID");
+        builtQuery = QueryHelper.selectQuery(columns,tables,whereEquals,"URT_ID,mt.STATE_ID");
     }
 
     @Override

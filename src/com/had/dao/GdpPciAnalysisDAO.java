@@ -33,13 +33,13 @@ public class GdpPciAnalysisDAO implements AbstractDAO{
         columns.add(STATE_NAME_COLUMN_NAME);
         columns.add("sum(" +GDP_2010_11_COLUMN_NAME+") as "+GDP_2010_11_COLUMN_NAME);
         columns.add(PCI_2010_11_COLUMN_NAME);
-        tables.put("GDP_DISTRICTWISE","GD");
-        tables.put("MAIN_TABLE","MT");
-        tables.put("PCI_STATEWISE","PS");
-        whereEquals.add("PS.STATE_ID = MT.STATE_ID");
-        whereEquals.add("GD.STATE_ID = MT.STATE_ID");
-        whereEquals.add("MT.DIST_ID = GD.DIST_ID");
-        builtQuery = QueryHelper.selectQuery(columns,tables,whereEquals,"GD.STATE_ID,MT.STATE_ID");
+        tables.put("gdp_districtwise","gd");
+        tables.put("main_table","mt");
+        tables.put("pci_statewise","ps");
+        whereEquals.add("ps.STATE_ID = mt.STATE_ID");
+        whereEquals.add("gd.STATE_ID = mt.STATE_ID");
+        whereEquals.add("mt.DIST_ID = gd.DIST_ID");
+        builtQuery = QueryHelper.selectQuery(columns,tables,whereEquals,"gd.STATE_ID,mt.STATE_ID");
     }
 
     @Override

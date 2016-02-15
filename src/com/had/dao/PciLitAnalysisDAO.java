@@ -33,13 +33,13 @@ public class PciLitAnalysisDAO implements AbstractDAO{
         columns.add(STATE_NAME_COLUMN_NAME);
         columns.add(PCI_2010_2011_COLUMN_NAME);
         columns.add(LIT_2011_COLUMN_NAME);
-        tables.put("LITERACY_STATEWISE","LS");
-        tables.put("MAIN_TABLE","MT");
-        tables.put("PCI_STATEWISE","PS");
-        whereEquals.add("LS.STATE_ID = MT.STATE_ID");
-        whereEquals.add("PS.STATE_ID = MT.STATE_ID");
-        whereEquals.add("LS.STATE_ID = PS.STATE_ID");
-        builtQuery = QueryHelper.selectQuery(columns,tables,whereEquals,"MT.STATE_ID");
+        tables.put("literacy_statewise","ls");
+        tables.put("main_table","mt");
+        tables.put("pci_statewise","ps");
+        whereEquals.add("ls.STATE_ID = mt.STATE_ID");
+        whereEquals.add("ps.STATE_ID = mt.STATE_ID");
+        whereEquals.add("ls.STATE_ID = ps.STATE_ID");
+        builtQuery = QueryHelper.selectQuery(columns,tables,whereEquals,"mt.STATE_ID");
     }
 
     @Override
