@@ -52,7 +52,6 @@ public class GrossEnrollRatioDAO implements AbstractDAO {
         tables.put("main_table","m");
         whereEquals.add("ger.STATE_ID = m.STATE_ID");
         builtQuery = QueryHelper.selectQuery(columns,tables,whereEquals,"m.STATE_ID");
-        System.out.println(builtQuery);
 		
 	}
    

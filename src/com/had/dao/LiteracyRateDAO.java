@@ -37,7 +37,6 @@ public class LiteracyRateDAO implements AbstractDAO
         tables.put("main_table","m");
         whereEquals.add("l.STATE_ID = m.STATE_ID");
         builtQuery = QueryHelper.selectQuery(columns,tables,whereEquals,"m.STATE_ID");
-        System.out.println(builtQuery);
     }
 
     @Override
