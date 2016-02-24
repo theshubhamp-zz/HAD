@@ -2,6 +2,7 @@
 <head>
     <!-- Angular Material style sheet -->
     <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.4/angular-material.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
@@ -15,13 +16,17 @@
 <md-toolbar>
     <div class="md-toolbar-tools">
         <h2>Household Analysis Dashboard</h2>
+        <span flex></span>
+        <md-button class="md-fab md-mini" ng-click="handleExport()">
+            <i class="fa fa-file-pdf-o"></i>
+        </md-button>
     </div>
 </md-toolbar>
 <div ng-cloak class="tabs">
     <md-content>
-        <md-tabs md-dynamic-height="" md-border-bottom="">
+        <md-tabs md-dynamic-height="" md-border-bottom="" md-selected="outerSelected">
             <md-tab label="Map">
-                <md-content class="md-padding" id="export">
+                <md-content class="md-padding" id="main">
                     <div layout="row" layout-xs="column">
                         <div flex>
                             <div id="map"></div>
@@ -37,25 +42,25 @@
                                     {{line}}
                                     <br>
                                 </div>
-                                <button onclick="exp()">Export</button>
+                                <button onclick="exp('main')">Export</button>
                             </md-content>
                         </div>
                     </div>
                 </md-content>
             </md-tab>
             <md-tab label="Statewise Charts">
-                    <md-tabs md-dynamic-height md-border-bottom>
+                    <md-tabs md-dynamic-height md-border-bottom  md-selected="statesSelected">
                         <md-tab label="Population">
-                            <md-content>
-                                <graph data="popDataState" width="1800" height="800" onclick="getPdf(event)">
+                            <md-content  id="s0">
+                                <graph data="popDataState" width="1800" height="800">
                                     <x field="name" title="State"></x>
                                     <y field="populationYear2011" title="Population in 2011"></y>
                                     <bar field="populationYear2011" ></bar>
                                 </graph>
                             </md-content>
                         </md-tab>
-                        <md-tab label="Per Capita Income">
-                            <md-content>
+                        <md-tab label="Per Capita Income" >
+                            <md-content id="s1">
                                 <graph data="pciDataState" width="1800" height="800">
                                     <x field="name" title="State"></x>
                                     <y field="percapitaYear2009_10" title="PerCapita in 2009-10"></y>
@@ -63,8 +68,8 @@
                                 </graph>
                             </md-content>
                         </md-tab>
-                        <md-tab label="Gross Domestic Produce">
-                            <md-content>
+                        <md-tab label="Gross Domestic Produce" >
+                            <md-content id="s2">
                                 <graph data="gdpDataState" width="1800" height="800">
                                     <x field="name" title="State"></x>
                                     <y field="gdpYear2010_11" title="GDP in 2010-11"></y>
@@ -72,8 +77,8 @@
                                 </graph>
                             </md-content>
                         </md-tab>
-                        <md-tab label="Literacy Rate">
-                            <md-content>
+                        <md-tab label="Literacy Rate" >
+                            <md-content id="s3">
                                 <graph data="literacyDataState" width="1800" height="800">
                                     <x field="name" title="State"></x>
                                     <y field="literacyRate2011" title="Literacy Rate in 2011"></y>
@@ -81,106 +86,118 @@
                                 </graph>
                             </md-content>
                         </md-tab>
-                        <md-tab label="Gross Enrollment Ratio">
-                            <md-content>
-                                <graph data="gerDataState" width="1800" height="800">
-                                    <x field="name" title="State"></x>
-                                    <y field="allMale" title="Groos Enrollment Ratio in 2011"></y>
-                                    <bar field="allMale" ></bar>
-                                    <bar field="allFemale" ></bar>
-                                </graph>
+                        <md-tab label="Gross Enrollment Ratio" >
+                            <md-content id="s4">
+                                    <graph data="gerDataState" width="1800" height="800">
+                                        <x field="name" title="State"></x>
+                                        <y field="allMale" title="Groos Enrollment Ratio in 2011"></y>
+                                        <bar field="allMale" ></bar>
+                                        <bar field="allFemale" ></bar>
+                                    </graph>
                             </md-content>
                         </md-tab>
-                        <md-tab label="Mean Household Size">
-                            <md-content>
-                                <graph data="hhDataState" width="1800" height="800">
-                                    <x field="name" title="State"></x>
-                                    <y field="MEAN_HHSIZE" title="Mean HH Size in 2011"></y>
-                                    <bar field="MEAN_HHSIZE" ></bar>
-                                </graph>
+                        <md-tab label="Mean Household Size" >
+                            <md-content id="s5">
+                                    <graph data="hhDataState" width="1800" height="800">
+                                        <x field="name" title="State"></x>
+                                        <y field="MEAN_HHSIZE" title="Mean HH Size in 2011"></y>
+                                        <bar field="MEAN_HHSIZE" ></bar>
+                                    </graph>
                             </md-content>
                         </md-tab>
                     </md-tabs>
             </md-tab>
             <md-tab label="{{stateTabName}}">
-                    <md-tabs md-dynamic-height="" md-border-bottom="">
+                    <md-tabs md-dynamic-height="" md-border-bottom=""  md-selected="districtSelected">
                         <md-tab label="Population">
-                            <graph data="popDataDistrict" width="1800" height="800">
-                                <x field="name" title="District"></x>
-                                <y field="populationYear2011" title="Population in 2011"></y>
-                                <bar field="populationYear2011" ></bar>
-                            </graph>
+                            <md-content id="d0">
+                                <graph data="popDataDistrict" width="1800" height="800">
+                                    <x field="name" title="District"></x>
+                                    <y field="populationYear2011" title="Population in 2011"></y>
+                                    <bar field="populationYear2011" ></bar>
+                                </graph>
+                            </md-content>
                         </md-tab>
                         <md-tab label="Gross Domestic Produce">
-                            <graph data="gdpDataDistrict" width="1800" height="800">
-                                <x field="name" title="District"></x>
-                                <y field="gdpYear2010_11" title="GDP in 2011"></y>
-                                <bar field="gdpYear2010_11" ></bar>
-                            </graph>
+                            <md-content id="d1">
+                                <graph data="gdpDataDistrict" width="1800" height="800">
+                                    <x field="name" title="District"></x>
+                                    <y field="gdpYear2010_11" title="GDP in 2011"></y>
+                                    <bar field="gdpYear2010_11" ></bar>
+                                </graph>
+                            </md-content>
                         </md-tab>
                         </md-tabs>
             </md-tab>
             <md-tab label="Analysis">
-                    <md-tabs md-dynamic-height="" md-border-bottom="">
+                    <md-tabs md-dynamic-height="" md-border-bottom=""  md-selected="analysisSelected">
                         <md-tab label="PCI-LIT Analysis">
-                            <graph data="pcilitAnalysisData" width="1800" height="800">
-                                <x field="name" title="States"></x>
-                                <y field="PCI_2010_11" title="Per Capita Income"></y>
-                                <bar field="name"></bar>
-                                <line field="name" y="LIT_2011" ytitle="Literacy Rate"></line>
-                            </graph>
+                            <md-content id="a0">
+                                <graph data="pcilitAnalysisData" width="1800" height="800">
+                                    <x field="name" title="States"></x>
+                                    <y field="PCI_2010_11" title="Per Capita Income"></y>
+                                    <bar field="name"></bar>
+                                    <line field="name" y="LIT_2011" ytitle="Literacy Rate"></line>
+                                </graph>
+                            </md-content>
                         </md-tab>
                         <md-tab label="POP-LIT Analysis">
-                            <graph data="poplitAnalysisData" width="1800" height="800">
-                                <x group-by="col" field="name" order-by="name" type="Category" title="States"></x>
-                                <y field="value" type="Measure" title="Number of people"></y>
-                                <bar field="col" value="POP"></bar>
-                                <bar field="col" value="LIT"></bar>
-                            </graph>
+                            <md-content id="a1">
+                                <graph data="poplitAnalysisData" width="1800" height="800">
+                                    <x group-by="col" field="name" order-by="name" type="Category" title="States"></x>
+                                    <y field="value" type="Measure" title="Number of people"></y>
+                                    <bar field="col" value="POP"></bar>
+                                    <bar field="col" value="LIT"></bar>
+                                </graph>
+                            </md-content>
                         </md-tab>
                         <md-tab label="HH-URT Analysis">
-                            <graph data="hhurtAnalysisData" width="1800" height="800">
-                                <x field="name" order-by="name"></x>
-                                <y field="hh_no"></y>
-                                <graph-legend></graph-legend>
-                                <line field="urt_id"></line>
-                            </graph>
+                            <md-content id="a2">
+                                <graph data="hhurtAnalysisData" width="1800" height="800">
+                                    <x field="name" order-by="name"></x>
+                                    <y field="hh_no"></y>
+                                    <line field="urt_id"></line>
+                                </graph>
+                            </md-content>
                         </md-tab>
                         <md-tab label="GDP-PCI Analysis">
-                            <graph data="gdppciAnalysisData" width="1800" height="800">
-                                <x field="name" title="States"></x>
-                                <y field="PCI_2010_11" title="Per Capita Income"></y>
-                                <area field="null"></area>
-                                <line field="name" y="GDP_2010_11" ytitle="Gross Domestic Product"></line>
-                              </graph>
-
+                            <md-content id="a3">
+                                <graph data="gdppciAnalysisData" width="1800" height="800">
+                                    <x field="name" title="States"></x>
+                                    <y field="PCI_2010_11" title="Per Capita Income"></y>
+                                    <area field="null"></area>
+                                    <line field="name" y="GDP_2010_11" ytitle="Gross Domestic Product"></line>
+                                  </graph>
+                            </md-content>
                         </md-tab>
                         <md-tab label="GER Analysis">
-                            <graph data="greAnalysisData" width="1800" height="800">
-                                <x field="name" order-by="name" title="States"></x>
-                                <y field="value" title="Gross Enrolment Ratio for age group 18-23 (2010-11)"></y>
-                                <graph-legend></graph-legend>
-                                <stacked-area field="col"></stacked-area>
-                            </graph>
+                            <md-content id="a4">
+                                <graph data="greAnalysisData" width="1800" height="800">
+                                    <x field="name" order-by="name" title="States"></x>
+                                    <y field="value" title="Gross Enrolment Ratio for age group 18-23 (2010-11)"></y>
+                                    <stacked-area field="col"></stacked-area>
+                                </graph>
+                            </md-content>
                         </md-tab>
                         <md-tab label="GER-LIT Analysis">
-                            Analysis 6
-                            <graph data="grelitAnalysisData" width="1800" height="800">
-                                <r field="allTotal" order-by="name"></r>
-                                <graph-legend></graph-legend>
-                                <ring field="name" thickness="20"></ring>
-                                <r field="literacyRate2011"></r>
-                                <ring field="name" thickness="40" diameter="78"></ring>
-                            </graph>
+                            <md-content id="a5">
+                                <graph data="grelitAnalysisData" width="1800" height="800">
+                                    <r field="allTotal" order-by="name"></r>
+                                    <ring field="name" thickness="20"></ring>
+                                    <r field="literacyRate2011"></r>
+                                    <ring field="name" thickness="40" diameter="78"></ring>
+                                </graph>
+                            </md-content>
                         </md-tab>
                         <md-tab label="PCI-POP Analysis">
-                            <graph data="pcipopAnalysisData" width="1800" height="800">
-                                <r field="percapitaYear2010_11"></r>
-                                <graph-legend></graph-legend>
-                                <ring field="name" thickness="20"></ring>
-                                <r field="populationYear2011"></r>
-                                <ring field="name" thickness="20" diameter="75"></ring>
-                            </graph>
+                            <md-content id="a6">
+                                <graph data="pcipopAnalysisData" width="1800" height="800">
+                                    <r field="percapitaYear2010_11"></r>
+                                    <ring field="name" thickness="20"></ring>
+                                    <r field="populationYear2011"></r>
+                                    <ring field="name" thickness="20" diameter="75"></ring>
+                                </graph>
+                            </md-content>
                         </md-tab>
                     </md-tabs>
             </md-tab>

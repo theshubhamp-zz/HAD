@@ -1,9 +1,15 @@
 var hadApp = angular.module('hadApp',['ngMaterial', 'ngMessages','angular-dimple']);
-var unifiedController = hadApp.controller("unifiedController",function($scope, $http,$mdDialog) {
+var unifiedController = hadApp.controller("unifiedController",function($scope,$http,$window,$log) {
 	$scope.stateName = "Select a State from the map";
 	$scope.stateTabName = 'Districtwise Charts';
 	$scope.stateId = -1;
     $scope.stateSummary="";
+
+	$scope.outerSelected = 0;
+	$scope.statesSelected = 0;
+	$scope.districtSelected = 0;
+	$scope.analysisSelected = 0;
+
     var states;
     $http.get('api/states')
         .then(function(resp){
@@ -221,19 +227,51 @@ var unifiedController = hadApp.controller("unifiedController",function($scope, $
         }
 	}
     //Dialog
-    $scope.showDialog = function(ev,graphData,x,y) {
-        $mdDialog.show({
-            controller: DialogController,
-            templateUrl: 'chart.tmpl.html',
-            parent: angular.element(document.body),
-            targetEvent: ev,
-            clickOutsideToClose: true,
-            fullscreen: false,
-            locals: {
-                data : graphData,
-                xf : x,
-                yf : y
-            }
-        });
-    }
+    $scope.handleExport = function () {
+		$log.log("Handler invoked");
+		//
+		/*
+		* $scope.outerSelected = 0;
+		 $scope.statesSelected = 0;
+		 $scope.districtSelected = 0;
+		 $scope.analysisSelected = 0;
+		* */
+		if($scope.outerSelected==0)
+		{
+			exp('main');
+		}
+		else if($scope.outerSelected==1)
+		{
+			switch($scope.statesSelected)
+			{
+				case 0: window.exp('s0'); break;
+				case 1: exp('s1'); break;
+				case 2: exp('s2'); break;
+				case 3: exp('s3'); break;
+				case 4: exp('s4'); break;
+				case 5: exp('s5'); break;
+			}
+		}
+		else if($scope.outerSelected==2)
+		{
+			switch($scope.districtSelected)
+			{
+				case 0: exp('d0'); break;
+				case 1: exp('d1'); break;
+			}
+		}
+		else if($scope.outerSelected==3)
+		{
+			switch($scope.analysisSelected)
+			{
+				case 0: exp('a0'); break;
+				case 1: exp('a1'); break;
+				case 2: exp('a2'); break;
+				case 3: exp('a3'); break;
+				case 4: exp('a4'); break;
+				case 5: exp('a5'); break;
+				case 6: exp('a6'); break;
+			}
+		}
+	}
 });
